@@ -1125,6 +1125,10 @@
   .an-cat .hd { text-transform: uppercase; letter-spacing: .08em; font-size: 11px; padding: 0 0 10px; border-bottom: 1px solid var(--rg-30); }
   .an-cr { border-top: 1px solid var(--rg-30); padding: 12px 0; } .an-cat .hd + .an-cr { border-top: none; } .an-cr .tr { height: 12px; } .an-cr .tr i { border-radius: 99px; }
   .an-row .tr i { transition: width .3s; }
+  /* opportunity page: Atlas panel stays fixed, only the left content scrolls */
+  .ov-wrap { height: calc(100vh / .9 - 128px); overflow: hidden; align-items: stretch; }
+  .ov-wrap > .ov-main { overflow-y: auto; height: 100%; padding-right: 8px; scrollbar-gutter: stable; }
+  .ov-wrap > .vai { position: static; height: 100%; }
 </style>
 </head>
 <body>
