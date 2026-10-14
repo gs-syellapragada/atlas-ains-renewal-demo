@@ -17,7 +17,7 @@
   button { font-family: inherit; }
   .screen { display: none; }
   .screen.active { display: block; }
-  .mono { font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 12.5px; }
+  .mono { font-family: 'Noto Sans', sans-serif; font-variant-numeric: tabular-nums; }
 
   /* ---------- shared pills / buttons ---------- */
   .pill { display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 999px; font-size: 11px; font-weight: 600; white-space: nowrap; }
@@ -203,17 +203,24 @@
   .pf { padding: 24px; }
   .pf-h { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--rg-70); }
   .pf-h .cnt { background: var(--fg-20); color: var(--fg-80); border-radius: 99px; padding: 0 8px; line-height: 20px; font-size: 12px; }
-  .pf-t { display: grid; grid-template-columns: 1fr 1.5fr 2.3fr 1fr 1.2fr .7fr 1.5fr .8fr 1.4fr; margin-top: 16px; border: 1px solid var(--rg-30); border-radius: 12px; overflow: hidden; font-size: 14px; }
+  .pf-t { display: grid; grid-template-columns: 1fr 1.4fr 2fr 1fr 1.1fr 2.4fr 1.3fr .8fr 1.3fr; margin-top: 16px; border: 1px solid var(--rg-30); border-radius: 12px; overflow: hidden; font-size: 14px; }
   .pf-t > div, .pf-t .rw > div { padding: 0 12px; display: flex; align-items: center; min-width: 0; border-bottom: 1px solid var(--rg-30); }
   .pf-t .h { height: 40px; font-size: 13px; color: var(--rg-70); background: #fff; }
   .pf-t .fl { height: 52px; }
+  .pf-t .fl .pf-in { width: 100%; border: 1px solid var(--rg-30); border-radius: 8px; height: 32px; padding: 0 10px; font: 400 13px inherit; font-family: inherit; outline: 0; background: #fff; color: #181F26; } .pf-t .fl .pf-in:focus { border-color: #A8CBF8; } .pf-t .fl .pf-in::placeholder { color: var(--rg-50); }
   .pf-t .fl span { width: 100%; border: 1px solid var(--rg-30); border-radius: 8px; height: 32px; display: flex; align-items: center; padding: 0 10px; color: var(--rg-50); font-size: 13px; white-space: nowrap; overflow: hidden; }
   .pf-t .c { height: 52px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; }
+  .ex-t { display: grid; grid-template-columns: 1fr 2.1fr 1.4fr 2.4fr 1.3fr 1.2fr .9fr 1fr .8fr 1.2fr; margin-top: 20px; border: 1px solid var(--rg-30); border-radius: 12px; overflow-x: auto; font-size: 14px; }
+  .ex-t .h { height: 40px; display: flex; align-items: center; padding: 0 12px; font-size: 13px; color: var(--rg-70); border-bottom: 1px solid var(--rg-30); background: #fff; white-space: nowrap; }
+  .ex-t .rw { display: contents; cursor: pointer; } .ex-t .rw:hover > div { background: #EBEEF2; }
+  .ex-t .c { padding: 0 12px; height: 52px; display: flex; align-items: center; border-bottom: 1px solid var(--rg-30); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .ex-t .c.lk { color: #0369E9; font-weight: 600; } .ex-t .c.lk2 { color: #0369E9; } .ex-t .c.sm { display: block; line-height: 52px; color: var(--rg-70); font-size: 13px; overflow: hidden; text-overflow: ellipsis; }
+  .ex-t .rw:last-child > div { border-bottom: none; }
   .pf-t .c.lk { color: #0369E9; gap: 8px; font-weight: 600; }
   .pf-t .c .av2 { width: 24px; height: 24px; border-radius: 50%; background: #E1EEFE; color: #0369E9; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .pf-t .rw { display: contents; cursor: pointer; }
-  .pf-t .rw:hover > div { background: #EBEEF2; }
-  .pf-t .rw.nl { cursor: default; }
+  .pf-t .rw:hover > div { background: #F5F7F9; }
+  .pf-t .rw.nl { cursor: default; } .pf-t .c a.ql { color: #0369E9; cursor: pointer; margin-left: 10px; font-size: 13px; } .pf-t .c a.ql:hover { text-decoration: underline; }
   .pf-t > .rw:last-child > div { border-bottom: none; }
   .ok-bar { background: #EBFBEE; border: 1px solid #98E7B1; color: #0B6B3F; border-radius: 8px; padding: 12px 16px; font-size: 14px; line-height: 22px; margin-top: 16px; }
   .ctx { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
@@ -315,7 +322,7 @@
   .xc .big { font-size: 14px; margin-top: 8px; }
   .xc h5 { margin: 14px 0 4px; font-size: 12px; font-weight: 600; }
   .xc ul { margin: 0; padding-left: 16px; font-size: 12px; line-height: 1.7; }
-  .xc ul.ck { list-style: none; padding-left: 0; } .xc ul.ck li::before { content: '✓ '; }
+  .xc ul.ck { list-style: none; padding-left: 0; } .xc ul.ck li::before { content: ''; display: inline-block; width: 14px; height: 14px; margin-right: 4px; vertical-align: -2px; background: currentColor; -webkit-mask: var(--m) center/contain no-repeat; mask: var(--m) center/contain no-repeat; --m: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%221.4%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M6 12.5L10 16.5L18 8%22/%3E%3C/svg%3E"); }
   .acc { border: 1px solid #E6E9EC; border-radius: 8px; margin-top: 10px; overflow: hidden; }
   .acc-h { padding: 12px 14px; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; }
   .acc-b { display: none; padding: 0 14px 14px; font-size: 12px; line-height: 1.7; color: #374151; white-space: pre-line; }
@@ -428,7 +435,7 @@
   .bcol:hover .b { background: var(--rb-40); }
   .bcol.hl .b { background: linear-gradient(180deg, var(--rb-60), var(--rb-70)); }
   .bcol .lbl { font-size: 12px; color: var(--rg-60); } .bcol.hl .lbl { color: var(--rb-70); font-weight: 600; }
-  .bcol .bv { font-size: 12px; font-weight: 600; }
+  .bcol .bv { font-size: 12px; font-weight: 600; visibility: hidden; } .bcol.hl .bv { visibility: visible; }
   .gauge { text-align: center; position: relative; margin-top: 4px; }
   .gauge .gc { position: absolute; left: 0; right: 0; top: 70px; }
   .gauge .gc b { font-size: 40px; font-weight: 700; letter-spacing: -1px; display: block; line-height: 44px; }
@@ -565,7 +572,7 @@
   .tb-r { display: flex; align-items: center; gap: 12px; }
   .tabview#tv-queue { margin-top: 0; }
   .cd.ql { padding: 0; }
-  .qm2 { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 16px; align-items: start; }
+  .qm2 { display: grid; grid-template-columns: 420px minmax(0, 1fr); gap: 16px; align-items: start; }
   .qm2 #qList { position: sticky; top: 112px; max-height: calc(100vh / .9 - 128px); overflow-y: auto; }
   .qm2 .ql-h { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--rg-60); padding: 20px 24px 8px; font-weight: 600; }
   .qm2 .qr { padding: 16px 24px; border-top: 1px solid var(--rg-30); }
@@ -827,6 +834,40 @@
   .vsw a { padding: 5px 14px; border-radius: 99px; color: #595C5E; text-decoration: none; font-weight: 500; }
   .vsw a:hover { background: #EBEEF2; }
   .vsw a.on { background: #0369E9; color: #fff; font-weight: 600; }
+  /* ---- shared header interactions ---- */
+  .hd-in { border: 0; background: transparent; outline: 0; flex: 1; font: 400 14px inherit; font-family: inherit; color: #181F26; min-width: 0; }
+  .hd-in::placeholder { color: #ACB4BD; }
+  .hdb .hd-badge { position: absolute; top: 2px; right: 2px; min-width: 16px; height: 16px; border-radius: 99px; background: #DC3626; color: #fff; font-size: 10px; font-style: normal; font-weight: 600; display: flex; align-items: center; justify-content: center; padding: 0 4px; pointer-events: none; }
+  .lm > svg { transition: opacity .15s; } .lm > svg:hover { opacity: .75; }
+  .hd-pop { position: fixed; z-index: 4000; background: #fff; border: 1px solid #E6E9EC; border-radius: 16px; box-shadow: 0 12px 32px rgba(24,31,38,.18); padding: 8px; max-height: 440px; overflow: auto; font-family: 'Noto Sans', system-ui, sans-serif; color: #181F26; }
+  .hd-ph { padding: 8px 12px 10px; font-size: 12px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: #5F6C7A; }
+  .hd-it { padding: 10px 12px; border-radius: 10px; cursor: pointer; font-size: 14px; } .hd-it:hover { background: #F5F7F9; } .hd-it b { display: block; font-weight: 600; } .hd-it small { display: block; color: #5F6C7A; font-size: 12px; margin-top: 2px; }
+  .hd-em { padding: 16px 12px; font-size: 13px; color: #5F6C7A; }
+  .hd-pu { display: flex; gap: 12px; align-items: center; padding: 10px 12px 12px; border-bottom: 1px solid #E6E9EC; margin-bottom: 6px; } .hd-pu b { display: block; font-size: 14px; } .hd-pu small { color: #5F6C7A; font-size: 12px; }
+  .hd-pa { width: 36px; height: 36px; border-radius: 50%; background: #E6E9EC; color: #3C4A57; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+  #hdAi { position: fixed; right: 24px; bottom: 24px; width: 380px; height: 520px; max-height: calc(100vh - 120px); z-index: 4100; background: #fff; border: 1px solid #E6E9EC; border-radius: 24px; box-shadow: 0 16px 48px rgba(24,31,38,.22); display: flex; flex-direction: column; overflow: hidden; font-family: 'Noto Sans', system-ui, sans-serif; color: #181F26; opacity: 0; transform: translateY(16px) scale(.98); pointer-events: none; transition: opacity .2s, transform .2s; }
+  #hdAi.open { opacity: 1; transform: none; pointer-events: auto; }
+  .hda-h { display: flex; align-items: center; gap: 10px; padding: 16px 18px; border-bottom: 1px solid #E6E9EC; } .hda-h b { flex: 1; font-size: 15px; } .hda-lg { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #7C5CFF, #0369E9); } .hda-x { border: 0; background: none; font-size: 22px; line-height: 1; color: #5F6C7A; cursor: pointer; border-radius: 8px; width: 28px; height: 28px; } .hda-x:hover { background: #EBEEF2; }
+  .hda-b { flex: 1; overflow-y: auto; padding: 16px 18px; background: #FCFCFD; }
+  .hda-m { display: flex; margin-bottom: 10px; } .hda-m.u { justify-content: flex-end; } .hda-m div { max-width: 90%; padding: 10px 14px; border-radius: 16px; background: #fff; border: 1px solid #E6E9EC; font-size: 13px; line-height: 20px; } .hda-m.u div { background: #0369E9; border-color: #0369E9; color: #fff; }
+  .hda-s { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; } .hda-s button { text-align: left; border: 1px solid #A8CBF8; background: #fff; color: #0369E9; border-radius: 12px; padding: 9px 14px; font: 500 13px inherit; font-family: inherit; cursor: pointer; } .hda-s button:hover { background: #F2F7FE; }
+  .hda-i { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid #E6E9EC; } .hda-i input { flex: 1; height: 36px; border: 1px solid #E6E9EC; border-radius: 99px; padding: 0 16px; font: 400 14px inherit; font-family: inherit; outline: 0; } .hda-i input:focus { border-color: #A8CBF8; } .hda-i button { height: 36px; padding: 0 16px; border-radius: 99px; border: 0; background: #0369E9; color: #fff; font: 600 13px inherit; font-family: inherit; cursor: pointer; }
+  .ck-wrap.rc { padding: 0; } #tv-rc { margin: 0; } #tv-rc iframe { display: block; width: 100%; height: calc(100vh / .9 - 96px); border: 0; background: #F5F7F9; }
+  .rc-chip { font-size: 12px; color: #5F6C7A; background: #F5F7F9; border: 1px solid #E6E9EC; border-radius: 100px; padding: 4px 12px; white-space: nowrap; }
+  /* Horizon icons as masks so they inherit text color */
+  .hzi { display: inline-block; width: 16px; height: 16px; vertical-align: -3px; background: currentColor; -webkit-mask: var(--m) center/contain no-repeat; mask: var(--m) center/contain no-repeat; flex: none; }
+  .hzi.up { --m: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%221.4%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M17 11.5L12 6.5L7 11.5%22/%3E%3Cpath d=%22M12 6.5V17.5%22/%3E%3C/svg%3E"); }
+  .hzi.dn { --m: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%221.4%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M7 12.5L12 17.5L17 12.5%22/%3E%3Cpath d=%22M12 17.5V6.5%22/%3E%3C/svg%3E"); }
+  .hzi.cu { --m: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%221.4%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M16 14L12 10L8 14%22/%3E%3C/svg%3E"); }
+  .hzi.cd { --m: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%221.4%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M8 10.5L12 14.5L16 10.5%22/%3E%3C/svg%3E"); }
+  .hzi.cr { --m: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%221.4%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M10 16L14 12L10 8%22/%3E%3C/svg%3E"); }
+  .hzi.ar { --m: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%221.4%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M12.5 7L17.5 12L12.5 17%22/%3E%3Cpath d=%22M17.5 12H6.5%22/%3E%3C/svg%3E"); }
+  .hzi.x { --m: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%221.4%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M7 7L17 17%22/%3E%3Cpath d=%22M7 17L17 7%22/%3E%3C/svg%3E"); }
+  .hzi.ck { --m: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%221.4%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M6 12.5L10 16.5L18 8%22/%3E%3C/svg%3E"); }
+  .hzi.mo { --m: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%221.4%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%226%22 cy=%2212%22 r=%221%22 fill=%22%23000%22/%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%221%22 fill=%22%23000%22/%3E%3Ccircle cx=%2218%22 cy=%2212%22 r=%221%22 fill=%22%23000%22/%3E%3C/svg%3E"); }
+  .dots3 .hzi { width: 20px; height: 20px; vertical-align: middle; }
+  .sort-i .hzi, .sort-icon .hzi { width: 14px; height: 14px; vertical-align: -3px; }
+  .dl .hzi, .rate-delta .hzi { width: 14px; height: 14px; vertical-align: -3px; margin-right: 2px; }
 
   /* ================= V2: opportunity-centric cockpit ================= */
   #v2root { }
@@ -993,7 +1034,7 @@
   .split .sp-r .cd { margin-bottom: 16px; }
   .vm2 { margin-top: 12px; }
 
-  .vsel { appearance: none; -webkit-appearance: none; padding-right: 36px; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M8 10.5L12 14.5L16 10.5' stroke='%235F6C7A' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center; }
+  .vsel { appearance: none; -webkit-appearance: none; padding-right: 36px; background: #fff url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%235F6C7A%22 stroke-width=%221.4%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M8 10.5L12 14.5L16 10.5%22/%3E%3C/svg%3E") no-repeat right 10px center / 22px; }
 
   .qm2 #qlist { position: sticky; top: 112px; max-height: calc(100vh / .9 - 128px); overflow-y: auto; align-self: start; }
   .sp-r .vppl, .ov-side .vppl { grid-template-columns: 1fr; }
@@ -1032,6 +1073,58 @@
 
   .vq { grid-template-columns: 1fr auto; }
   .vq-s { grid-column: 1; } .vq-d { grid-column: 2; } .vq-b { grid-column: 1 / 3; }
+
+  /* ---- Horizon alignment: same components, tokens and radii as V1 ---- */
+  .vc { display: inline-flex; align-items: center; height: 20px; padding: 0 8px; border-radius: 6px; font-size: 12px; font-weight: 400; line-height: 20px; white-space: nowrap; background: #F5F7F9; color: #181F26; gap: 4px; }
+  .vc.sm { height: 18px; font-size: 11px; padding: 0 6px; border-radius: 4px; }
+  .vc.blue { background: #E6F0FD; color: #0369E9; } .vc.green { background: #D6F5E1; color: #0B6B3F; } .vc.amber { background: #FFECB8; color: #181F26; } .vc.red { background: #FDDFDC; color: #181F26; } .vc.purple, .vc.orange { background: #F5F7F9; color: #181F26; }
+  .vc svg.hz { display: none; }
+  .vav { background: #EBEEF2 !important; color: #3C4A57 !important; }
+  .vs-h .ic { display: none; }
+  .vai-h .lg { background: #0369E9; }
+  .vbanner.warn { background: #FFF3D1; border-color: #FFD45C; color: #181F26; } .vbanner.risk { background: #FEF1EC; border-color: #F6D5C6; color: #181F26; } .vbanner.ok { background: #EBFBEE; border-color: #98E7B1; color: #0B6B3F; } .vbanner.info { background: #EEF4FF; border-color: #C5D9F6; color: #181F26; }
+  .vbanner .bi { color: #5F6C7A !important; }
+  .vbtn { height: 28px; padding: 0 16px; font-size: 14px; font-weight: 600; border-radius: 100px; border: 1px solid #A8CBF8; background: #fff; color: #0369E9; }
+  .vbtn:hover { background: #F2F7FE; border-color: #A8CBF8; }
+  .vbtn.p { background: #0369E9; border-color: #0369E9; color: #fff; } .vbtn.p:hover { background: #034AA3; }
+  .vbtn.t, .vbtn.d { background: none; border-color: transparent; color: #0369E9; padding: 0 8px; } .vbtn.t:hover, .vbtn.d:hover { background: #F2F7FE; border-color: transparent; }
+  .vbtn.sm { height: 24px; padding: 0 12px; font-size: 12px; } .vbtn.sm.t { padding: 0 6px; }
+  .vsec { padding: 28px; } .vh { padding: 28px; } .ov-hero { padding: 28px; }
+  .vlink.sm { font-size: 12px; margin-left: 8px; white-space: nowrap; }
+  .vh-tl { font-size: 18px; font-weight: 600; }
+  .vsug button { border: 1px solid #A8CBF8; background: #fff; color: #0369E9; } .vsug button:hover { background: #F2F7FE; }
+  .vmsg.me .vbub { background: #0369E9; border-color: #0369E9; }
+  .vq.sel { background: #F2F7FE; box-shadow: inset 3px 0 0 #0369E9; }
+  .vq-b { justify-content: space-between; }
+  .vchip .vn { margin-left: 6px; color: #5F6C7A; font-weight: 600; }
+  .vtoggle span.on { background: #E6F0FD; color: #0369E9; }
+  /* ---- Analyze (V2) ---- */
+  .an-h { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; } .an-h h1 { margin: 0; font-size: 22px; font-weight: 600; } .an-r { display: flex; gap: 12px; align-items: center; }
+  .an-c { background: #fff; border: 1px solid var(--rg-30); border-radius: 24px; padding: 28px; margin-bottom: 16px; min-width: 0; }
+  .an-c h3 { margin: 0 0 4px; font-size: 18px; font-weight: 600; } .an-c p { margin: 0 0 14px; font-size: 12px; color: var(--rg-60); } .an-c h4 { margin: 0; font-size: 13px; font-weight: 600; }
+  .an-s { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; } .an-s small { display: block; font-size: 12px; color: var(--rg-60); } .an-s b { display: block; font-size: 28px; line-height: 38px; font-weight: 700; } .an-s span { font-size: 11px; color: var(--rg-60); }
+  .an-bar { display: flex; gap: 3px; height: 10px; margin-top: 16px; } .an-bar i { display: block; border-radius: 2px; }
+  .an-lg { display: flex; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--rg-70); margin-top: 10px; } .an-lg span { display: flex; align-items: center; gap: 6px; } .an-lg i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
+  .an-g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; } .an-g2 > .an-c { margin-bottom: 0; }
+  .an-row { display: grid; grid-template-columns: 130px 1fr 64px 36px; gap: 12px; align-items: center; padding: 7px 6px; margin: 0 -6px; font-size: 13px; cursor: pointer; border-radius: 6px; } .an-row:hover { background: #F5F7F9; }
+  .an-row .tr { height: 10px; border-radius: 99px; background: #F1F2F4; overflow: hidden; } .an-row .tr i { display: block; height: 100%; border-radius: 99px; } .an-row b { text-align: right; font-weight: 600; } .an-row em { font-style: normal; color: var(--rg-60); text-align: right; }
+  .an-div { height: 1px; background: var(--rg-30); margin: 8px 0; }
+  .an-tl { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 6px; } .an-t { background: #F6F7F8; border-radius: 10px; padding: 12px 14px; } .an-t small { display: block; font-size: 11px; color: var(--rg-60); } .an-t b { display: block; font-size: 22px; font-weight: 700; margin-top: 4px; } .an-t span { font-size: 11px; color: var(--rg-60); }
+  .an-cat .hd, .an-cr { display: grid; grid-template-columns: 160px 1fr 70px 110px 80px; gap: 16px; align-items: center; font-size: 13px; } .an-cat .hd { font-size: 11px; color: var(--rg-60); padding: 6px 0; } .an-cr { padding: 9px 0; }
+  .an-cr .tr { height: 12px; } .an-cr .tr i { display: block; height: 100%; border-radius: 2px; } .an-cr b { text-align: right; font-weight: 600; } .an-cr > span:last-child, .an-cat .hd span:nth-child(n+3) { text-align: right; }
+  .an-ch { width: 100%; min-height: 20px; }
+
+  .an-c .ct { font-size: 18px; font-weight: 600; } .an-c .ct .sp { flex: 1; } .an-c .ct .dots3 { margin-left: auto; color: var(--rg-50); font-size: 16px; letter-spacing: 2px; font-weight: 400; cursor: default; }
+  .an-c > p { margin: 4px 0 18px; } .an-sub p { margin: 10px 0 0; }
+  .an-sub { min-width: 0; } .an-sub h4 { font-size: 14px; }
+  .an-bar { height: 12px; gap: 4px; margin-top: 4px; } .an-bar i { border-radius: 99px; }
+  .an-lg { gap: 18px; margin: 0 0 12px; } .an-lg i { width: 10px; height: 10px; border-radius: 3px; }
+  .an-row { padding: 9px 8px; margin: 0 -8px; } .an-row .tr { height: 12px; background: #F5F7F9; }
+  .an-tl { gap: 16px; } .an-t { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; } .an-t b { margin: 0; font-size: 26px; line-height: 30px; }
+  .an-t .dl { background: var(--fg-20); color: var(--fg-80); font-size: 12px; font-weight: 600; border-radius: 8px; padding: 2px 8px; } .an-t .dl.bad { background: var(--tr-20); color: var(--tr-70); }
+  .an-cat .hd { text-transform: uppercase; letter-spacing: .08em; font-size: 11px; padding: 0 0 10px; border-bottom: 1px solid var(--rg-30); }
+  .an-cr { border-top: 1px solid var(--rg-30); padding: 12px 0; } .an-cat .hd + .an-cr { border-top: none; } .an-cr .tr { height: 12px; } .an-cr .tr i { border-radius: 99px; }
+  .an-row .tr i { transition: width .3s; }
 </style>
 </head>
 <body>
@@ -1195,13 +1288,13 @@ const CONTACT = {
   tarnow: ['Jakub Nowak|Operations Lead|j.nowak@tarnow-packaging.pl|Responsive|2026-10-07|PL'],
   ostrava: ['Petr Novak|Head of IT|p.novak@ostrava-steelworks.cz|Responsive|2026-10-09|CZ']
 };
-const INTENT = { Renewing: 'Renewing', 'At risk': 'Downsell', Churning: 'Churning', Unknown: '' };
+const INTENT = { Renewing: 'Renewing', 'At risk': 'Downsell', Churning: 'Not renewing', Unknown: '' };
 function mkOpp(x) {
   const i = OPPS.length, key = slug(x.account), st = x.status, closedWon = st === 'Closed won', lost = st === 'Churned';
   const stage = STG[st] || 'Renewal Notice', due = dateOff(x.dtr);
   const o = {
     id: 'op' + (i + 1), key, account: x.account, name: x.account + ' – Renewal FY27', owner: x.owner || RMS[i % 3], playbook: x.arr < 20000 ? 'Auto-Renew' : 'Renewal Outreach', cur: '€', target: x.arr, gross: x.arr, final: closedWon ? x.arr : lost ? 0 : null,
-    forecast: lost ? 0 : x.forecast || x.arr, due, close: closedWon || lost ? dateOff(x.dtr - 40 - (i % 9)) : '', stage, status: AST[st] || 'Engaged', intent: x.intent2 != null ? x.intent2 : (st === 'Negotiation' && x.intent === 'Renewing' ? 'Negotiating' : INTENT[x.intent] || ''),
+    forecast: lost ? 0 : x.forecast || x.arr, due, close: closedWon || lost ? dateOff(x.dtr - 40 - (i % 9)) : '', stage, status: AST[st] || 'Engaged', intent: x.intent2 != null ? x.intent2 : (st === 'Negotiation' && x.intent === 'Renewing' ? 'Evaluating' : (st === 'Customer Engaged' && x.intent === 'Renewing' && i % 5 === 0 ? 'Expanding' : INTENT[x.intent] || '')),
     res: closedWon ? 'Won' : lost ? 'Lost' : 'Open', booking: 'Renewal', completion: closedWon ? 'Autonomous' : lost ? 'Manual' : '', rm: x.rm || null, atlas: true, health: lost ? 0 : closedWon ? 90 + (i % 9) : Math.max(12, x.conf), emails: st === 'Not engaged' ? 0 : st === 'Outreach' ? 2 : 3,
     geo: GEO[i % GEO.length], oppId: '006Nx0000' + (1000 + i * 7) + 'Q', leadTime: closedWon ? 20 + (i % 30) : null, agentId: 'EX-' + String(130 + i).padStart(5, '0'), startDate: dateOff(x.dtr - 45 > -30 ? -(14 + (i % 9)) : -20),
     lastTouch: st === 'Not engaged' ? '' : dateOff(-(1 + (i % 8))), nextStep: x.next || (closedWon ? 'None. Renewal closed.' : lost ? 'None. Non-renewal confirmed.' : st === 'Not engaged' ? 'Atlas to send renewal notice' : st === 'Outreach' ? 'Atlas to follow up on outreach' : 'Atlas to follow up with the customer'),
@@ -1212,7 +1305,7 @@ function mkOpp(x) {
 V1ROWS.forEach((r, i) => {
   const rm = (i % 7 === 3 && !['Handoff', 'Closed won', 'Churned'].includes(r.status)) ? ME : null;
   const sp = {
-    carlson: { forecast: 62856, next: 'Approve the pricing reply for the 15 added licenses', summary: 'Lukas Brandt (IT Procurement Lead) asked to add 15 licenses to the renewal. The agent pulled current pricing and drafted a reply, which waits for your approval. Annual total with the 3% volume discount is €62,856.', owner: ME },
+    carlson: { intent2: 'Expanding', forecast: 62856, next: 'Approve the pricing reply for the 15 added licenses', summary: 'Lukas Brandt (IT Procurement Lead) asked to add 15 licenses to the renewal. The agent pulled current pricing and drafted a reply, which waits for your approval. Annual total with the 3% volume discount is €62,856.', owner: ME },
     manchester: { next: 'Call Eleanor and ask who owns the decision', summary: 'Eleanor Whitcombe (Head of Operations) said leadership changed and the company will not renew. The agent acknowledged the note and handed the renewal over on Oct 9. Health is 41, down from 68 in June.', owner: ME },
     nordlicht: { next: 'Approve the price increase notice', owner: ME }, kessler: { next: 'Reach out by phone, no reply to two follow-ups', owner: ME }, alpenrose: { next: 'Approve the renewal confirmation', owner: ME },
     veldt: { next: 'Approve the 6% two-year discount reply', owner: ME }, lindqvist: { next: 'Scope the three-year price lock', owner: ME }, tarnow: { next: 'Approve the renewal quote', owner: ME }, ostrava: { next: 'Call about the competitor mention', owner: ME }
@@ -1354,6 +1447,65 @@ function wireChart(W, H) {
   }
 
 
+/* ---------- shared header interactions: search, notifications, Atlas assistant, profile, left rail ---------- */
+const HDR = (() => {
+  let cfg = null, pop = null, popId = '', acts = [], msgs = [];
+  const q1 = s => document.querySelector(s), esc2 = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  function closePop() { if (pop) { pop.remove(); pop = null; popId = ''; document.removeEventListener('mousedown', away, true); } }
+  function away(e) { if (pop && !pop.contains(e.target) && !e.target.closest('.hd-s') && !e.target.closest('.hdb')) closePop(); }
+  function openPop(id, anchor, html, w, left) {
+    if (popId === id) { closePop(); return; }
+    closePop(); popId = id; pop = document.createElement('div'); pop.className = 'hd-pop'; pop.innerHTML = html; document.body.appendChild(pop);
+    const r = anchor.getBoundingClientRect(); w = w || 360; pop.style.width = w + 'px'; pop.style.top = (r.bottom + 8) + 'px';
+    pop.style.left = (left ? r.left : Math.min(Math.max(8, r.right - w), innerWidth - w - 8)) + 'px';
+    pop.onclick = e => { const it = e.target.closest('[data-a]'); if (it) { const a = acts[+it.dataset.a]; closePop(); if (a) a(); } };
+    document.addEventListener('mousedown', away, true);
+  }
+  const item = (t, s, go) => { acts.push(go); return `<div class="hd-it" data-a="${acts.length - 1}"><b>${esc2(t)}</b>${s ? `<small>${esc2(s)}</small>` : ''}</div>`; };
+  function refresh() { const n = cfg ? cfg.pending().length : 0, b = q1('.hdb .hd-badge'); if (b) { b.textContent = n; b.style.display = n ? '' : 'none'; } }
+  function aiRender() {
+    const p = q1('#hdAi'); if (!p) return;
+    p.querySelector('.hda-b').innerHTML = msgs.map(m => `<div class="hda-m ${m.r}"><div>${esc2(m.t).replace(/\n/g, '<br>')}</div></div>`).join('') + `<div class="hda-s">${cfg.suggest.map((s, i) => `<button data-s="${i}">${esc2(s)}</button>`).join('')}</div>`;
+    const b = p.querySelector('.hda-b'); b.scrollTop = b.scrollHeight;
+  }
+  function ask(t) { if (!t.trim()) return; msgs.push({ r: 'u', t }); msgs.push({ r: 'a', t: cfg.ask(t) }); aiRender(); }
+  function aiOpen() {
+    closePop(); let p = q1('#hdAi');
+    if (!p) {
+      p = document.createElement('div'); p.id = 'hdAi'; p.innerHTML = `<div class="hda-h"><span class="hda-lg"></span><b>Atlas assistant</b><button class="hda-x" aria-label="Close"><i class="hzi x"></i></button></div><div class="hda-b"></div><div class="hda-i"><input placeholder="Ask about your renewals" /><button>Send</button></div>`;
+      document.body.appendChild(p);
+      p.querySelector('.hda-x').onclick = () => p.classList.remove('open');
+      const inp = p.querySelector('input'), send = () => { ask(inp.value); inp.value = ''; };
+      p.querySelector('.hda-i button').onclick = send; inp.onkeydown = e => { e.stopPropagation(); if (e.key === 'Enter') send(); };
+      p.querySelector('.hda-b').onclick = e => { const s = e.target.closest('[data-s]'); if (s) ask(cfg.suggest[+s.dataset.s]); };
+      msgs = [{ r: 'a', t: 'Hi ' + cfg.user.name.split(' ')[0] + ', I am Atlas. Ask me what needs your attention, which renewals are at risk, or how the agent is doing.' }];
+    }
+    aiRender(); p.classList.toggle('open'); if (p.classList.contains('open')) setTimeout(() => p.querySelector('input').focus(), 50);
+  }
+  function init(c) {
+    cfg = c; const hd = q1('.hd'); if (!hd) return;
+    const s = hd.querySelector('.hd-s'); s.innerHTML = s.querySelector('svg').outerHTML + '<input class="hd-in" placeholder="Search for Companies and Relationships" />'; s.style.cursor = 'text';
+    const inp = s.querySelector('input'), run = () => {
+      const v = inp.value.trim(); if (!v) { closePop(); return; }
+      acts = []; const res = cfg.search(v);
+      const html = res.length ? res.map(r => item(r.t, r.s, r.go)).join('') : `<div class="hd-em">No companies or relationships match "${esc2(v)}"</div>`;
+      closePop(); popId = ''; openPop('search', s, html, s.getBoundingClientRect().width, true);
+    };
+    inp.oninput = run; inp.onfocus = () => { if (inp.value.trim()) run(); };
+    inp.onkeydown = e => { e.stopPropagation(); if (e.key === 'Escape') { closePop(); inp.blur(); } if (e.key === 'Enter' && pop) { const f = pop.querySelector('[data-a]'); if (f) f.click(); } };
+    const bs = hd.querySelectorAll('.hdb'), bell = bs[0], aib = bs[1], av = bs[2];
+    bell.style.position = 'relative'; bell.insertAdjacentHTML('beforeend', '<i class="hd-badge"></i>'); bell.style.cursor = 'pointer'; aib.style.cursor = 'pointer'; av.style.cursor = 'pointer';
+    bell.onclick = () => { acts = []; const list = cfg.pending(); openPop('bell', bell, `<div class="hd-ph">Notifications</div>` + (list.length ? list.map(r => item(r.t, r.s, r.go)).join('') : '<div class="hd-em">You are all caught up. Nothing is waiting on you.</div>'), 380); };
+    aib.onclick = aiOpen;
+    av.onclick = () => { acts = []; openPop('av', av, `<div class="hd-pu"><span class="hd-pa">${cfg.user.ini}</span><div><b>${esc2(cfg.user.name)}</b><small>${esc2(cfg.user.role)} · Elle AI</small></div></div>` + item('View profile', '', () => cfg.toast('Profile is not part of this walkthrough')) + item('Notification settings', '', () => cfg.toast('Settings are not part of this walkthrough')) + item('Sign out', '', () => cfg.toast('Signed out is not part of this walkthrough')), 300); };
+    const rail = document.querySelectorAll('.lm > svg'), names = { 1: 'Search', 2: 'Home', 3: 'Agents' };
+    rail.forEach((sv, i) => { if (i === 0 || sv.getAttribute('height') === '1') return; sv.style.cursor = 'pointer'; if (names[i]) sv.insertAdjacentHTML('afterend', ''); sv.onclick = () => { if (i === 1) inp.focus(); else if (i === 2 || i === 3) cfg.home(); else cfg.toast('Navigation outside Atlas is not part of this walkthrough'); }; });
+    refresh();
+  }
+  return { init, refresh, closePop };
+})();
+
+
 /* ============================================================
    V2 UI: opportunity-centric cockpit (Atlas AINS Renewal Demo)
    ============================================================ */
@@ -1361,8 +1513,8 @@ const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g,
 const OWN_STG = ['Renewal Notice', 'In Negotiation', 'Verbal Commit', 'Closed Won'];
 const S = {
   tab: 'queue', from: 'queue', opp: null, selQ: null, qs: 'all', qt: 'all', view: 'All', pv: 'table',
-  f: { q: '', stage: '', driver: '', owner: '', playbook: '' }, sort: { k: 'due', d: 1 },
-  edit: {}, drafts: {}, decl: {}, sumOpen: false, otab: 'timeline', tlType: '', ai: 'chat', chat: {}, hl: null, clock: 0, running: true, done: {}, addAct: null, resch: false, day: 'Tue'
+  f: { q: '', stage: '', driver: '', owner: '', playbook: '', intent: '' }, sort: { k: 'due', d: 1 },
+  edit: {}, drafts: {}, decl: {}, sumOpen: false, otab: 'timeline', tlType: '', ai: 'chat', chat: {}, hl: null, clock: 0, an: 'me', running: true, done: {}, addAct: null, resch: false, day: 'Tue'
 };
 const nowTs = () => { S.clock++; const m = 14 * 60 + 14 + S.clock; return '2026-10-12T' + String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0'); };
 const qOpp = q => OPP(q.opp);
@@ -1381,9 +1533,9 @@ const av = (name, s) => { s = s || 36; let h = 0; for (const c of name) h += c.c
 const stageIdx = o => o.stage === 'Closed Lost' ? 3 : Math.min(OWN_STG.indexOf(o.stage), 3);
 const seg = o => `<div class="vseg">${[0, 1, 2, 3].map(i => `<i class="${i <= stageIdx(o) ? (o.stage === 'Closed Lost' && i === 3 ? 'lost' : 'on') : ''}"></i>`).join('')}</div>`;
 const ring = (v, s) => { s = s || 44; const r = 18, c = 2 * Math.PI * r, col = v < 50 ? '#DC3626' : v < 70 ? '#DA7309' : '#12995B'; return `<div class="vring" style="width:${s}px;height:${s}px"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="${r}" fill="none" stroke="#E6E9EC" stroke-width="4"/><circle cx="22" cy="22" r="${r}" fill="none" stroke="${col}" stroke-width="4" stroke-linecap="round" stroke-dasharray="${(c * v / 100).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 22 22)"/></svg><b style="color:${col};font-size:${Math.round(s * .3)}px">${v}</b></div>`; };
-const DRV = { 'Agent': ['blue', 'bolt'], 'Agent · Awaiting approval': ['amber', 'review'], 'Handoff pending': ['red', 'caution'], 'RM': ['green', 'user'] };
+const DRV = { 'Agent': ['', 'bolt'], 'Agent · Awaiting approval': ['amber', 'review'], 'Handoff pending': ['red', 'caution'], 'RM': ['green', 'user'] };
 const drv = o => { const d = driverOf(o), m = DRV[d]; return `<span class="vc ${m[0]}">${hz(m[1])}${esc(d === 'RM' ? 'RM · ' + o.rm : d)}</span>`; };
-const INT = { Renewing: 'green', Negotiating: 'purple', Downsell: 'orange', Churning: 'red' };
+const INT = { Expanding: 'green', Downsell: 'amber', 'Not renewing': 'red' };
 const intent = i => i ? `<span class="vc ${INT[i] || ''}">${esc(i)}</span>` : '<span class="vmut">None</span>';
 const QST = { Awaiting: 'amber', Approved: 'green', Accepted: 'green', Declined: 'red', 'Taken over': '', Expired: '' };
 const qChip = s => `<span class="vc ${QST[s] || ''}">${esc(s)}</span>`;
@@ -1410,7 +1562,7 @@ function tgRow(e, el) {
 /* ---------- navigation ---------- */
 function go(tab) { S.tab = tab; S.opp = null; renderAll(); $('#scroller').scrollTo(0, 0); }
 function openOpp(id, from) { S.opp = id; S.from = from || (S.tab === 'opp' ? S.from : S.tab); S.tab = 'opp'; S.otab = QUEUE.some(q => q.opp === id && q.type === 'Handoff' && q.status === 'Awaiting') ? 'handoff' : 'timeline'; S.ai = 'chat'; S.addAct = null; S.resch = false; renderAll(); $('#scroller').scrollTo(0, 0); }
-function filterPortfolio(k, v) { S.f = { q: '', stage: '', driver: '', owner: '', playbook: '' }; S.view = 'All'; if (k === 'view') S.view = v; else S.f[k] = v; S.tab = 'portfolio'; S.opp = null; renderAll(); $('#scroller').scrollTo(0, 0); }
+function filterPortfolio(k, v) { S.f = { q: '', stage: '', driver: '', owner: '', playbook: '', intent: '' }; S.view = 'All'; if (k === 'view') S.view = v; else S.f[k] = v; S.tab = 'portfolio'; S.opp = null; renderAll(); $('#scroller').scrollTo(0, 0); }
 function renderTabs() {
   const n = QUEUE.filter(q => q.status === 'Awaiting').length, cur = S.tab === 'opp' ? S.from : S.tab;
   const NAV = [['queue', 'My Action Queue', n], ['portfolio', 'Portfolio'], ['analyze', 'Analyze']];
@@ -1422,8 +1574,9 @@ function renderAll() {
   renderTabs();
   const k = ['qlist', 'qdet'].map(id => { const e = document.getElementById(id); return e ? [id, e.scrollTop] : null; }).filter(Boolean);
   $('#v2root').innerHTML = S.tab === 'queue' ? queueView() : S.tab === 'portfolio' ? portfolioView() : S.tab === 'analyze' ? analyzeView() : oppView();
-  if (S.tab === 'analyze') drawChart();
+  if (S.tab === 'analyze') drawAn();
   k.forEach(x => { const e = document.getElementById(x[0]); if (e) e.scrollTop = x[1]; });
+  HDR.refresh();
 }
 
 /* ============================ QUEUE ============================ */
@@ -1441,7 +1594,7 @@ function queueView() {
     return `<div class="vq ${q.id === S.selQ ? 'sel' : ''} ${done ? 'vq-done' : ''}" onclick="S.selQ='${q.id}';renderAll()">
       <div class="vq-n">${esc(o.account)}</div><span class="vc vq-c ${done ? QST[q.status] || '' : hand ? 'red' : 'amber'}">${done ? esc(q.status) : hand ? 'Handoff' : 'Approval'}</span>
       <div class="vq-s">${esc(hand ? q.reason : q.actionType + ' · ' + q.reason)}</div><span class="vq-d ${q.late && !done ? 'late' : ''}">Due ${fshort(q.due)}${q.late && !done ? ' (passed)' : ''}</span>
-      <div class="vq-b">${seg(o)}<span>${esc(o.stage)}</span><span style="font-weight:600;color:#181F26">${amt(o, o.target)}</span></div></div>`;
+      <div class="vq-b"><span>${esc(o.stage)}</span><span style="font-weight:600;color:#181F26">${amt(o, o.target)}</span></div></div>`;
   }).join('') || '<div class="vempty">Nothing here. Your queue is empty.</div>';
   const q = QUEUE.find(x => x.id === S.selQ);
   const chips = (cur, key, list) => list.map(x => `<span class="vchip ${cur === x[0] ? 'on' : ''}" onclick="S.${key}='${x[0]}';renderAll()">${x[1]}</span>`).join('');
@@ -1477,7 +1630,7 @@ function qActions(q) {
 }
 function qDetail(q) {
   const o = qOpp(q), c = q.c, aw = q.status === 'Awaiting';
-  let h = `<div class="cd vh"><div class="vh-top">${av(o.account, 56)}<div class="vh-t"><h2>${esc(o.name)}</h2><small>${esc(o.playbook)} · ${esc(o.geo)} · <span class="vlink" onclick="openOpp('${o.id}','queue')">Open opportunity</span></small></div><div class="vh-a">${qActions(q)}</div></div>${metrics(o)}${path(o)}</div>`;
+  let h = `<div class="cd vh"><div class="vh-top">${av(o.account, 56)}<div class="vh-t"><h2>${esc(o.name)}</h2><small>${esc(o.playbook)} · ${esc(o.geo)} · <span class="vlink" onclick="openOpp('${o.id}','queue')">Open opportunity</span></small></div><div class="vh-a">${qActions(q)}</div></div>${metrics(o)}</div>`;
   if (!aw) h += `<div class="vbanner ok"><span class="bi">${hz('double-tick')}</span><div><b>${esc(q.status)} by ${esc(q.decidedBy || '')}</b><span>${q.decidedAt ? fdt(q.decidedAt) : ''}${q.status === 'Declined' && q.feedback ? ' · ' + esc(q.feedback) : q.edited ? ' · with edits' : ''}</span></div></div>`;
   if (S.decl[q.id] && aw) h += `<div class="cd vsec"><div class="vs-h">Decline with feedback</div><textarea class="vin" id="decFb" rows="3" placeholder="Tell the agent what to change"></textarea><div style="display:flex;gap:12px;margin-top:12px"><button class="vbtn d" onclick="declineQ('${q.id}')">Confirm decline</button><button class="vbtn t" onclick="S.decl['${q.id}']=false;renderAll()">Cancel</button></div></div>`;
   return h + (c.kind === 'email' ? emailBlock(q, aw) : handBlock(q));
@@ -1487,11 +1640,10 @@ function emailBlock(q, aw) {
   const c = q.c, d = aw ? getDraft(q) : c.draft, ed = aw && S.edit[q.id], sent = q.status === 'Approved';
   let h = '';
   if (c.evalFail) h += `<div class="vbanner warn"><span class="bi">${hz('caution')}</span><div><b>${esc(c.evalFail.check)}</b><span>${esc(c.evalFail.detail)}</span></div></div>`;
-  h += `<div class="cd vsec">${secH('info', '', 'Why it is here')}<div class="vtxt">${esc(q.detail)}</div>${c.quote ? `${S.sumOpen ? `<table class="ptb" style="margin-top:16px"><thead><tr><th>Pricing pulled from the price book</th><th class="n">Qty</th><th class="n">Unit</th><th class="n">Amount</th></tr></thead><tbody>${c.quote.map((r, i) => `<tr class="${i === 3 ? 't' : ''}"><td>${r[0]}</td><td class="n">${r[1]}</td><td class="n">${r[2]}</td><td class="n">${r[3]}</td></tr>`).join('')}</tbody></table><div class="cps"><span class="cp grn">Discount within guardrail</span><span class="cp grn">Matches current price book</span><span class="cp grn">Tone check passed</span></div>` : ''}<button class="vm2 ${S.sumOpen ? 'open' : ''}" onclick="S.sumOpen=!S.sumOpen;renderAll()">${S.sumOpen ? 'View less' : 'View pricing details'}${hz('chevron-down')}</button>` : ''}</div>`;
+  h += `<div class="cd vsec">${secH('info', '', 'Summary')}<div class="vtxt">${esc(q.detail)}</div>${c.quote ? `${S.sumOpen ? `<table class="ptb" style="margin-top:16px"><thead><tr><th>Pricing pulled from the price book</th><th class="n">Qty</th><th class="n">Unit</th><th class="n">Amount</th></tr></thead><tbody>${c.quote.map((r, i) => `<tr class="${i === 3 ? 't' : ''}"><td>${r[0]}</td><td class="n">${r[1]}</td><td class="n">${r[2]}</td><td class="n">${r[3]}</td></tr>`).join('')}</tbody></table><div class="cps"><span class="cp grn">Discount within guardrail</span><span class="cp grn">Matches current price book</span><span class="cp grn">Tone check passed</span></div>` : ''}<button class="vm2 ${S.sumOpen ? 'open' : ''}" onclick="S.sumOpen=!S.sumOpen;renderAll()">${S.sumOpen ? 'View less' : 'View pricing details'}${hz('chevron-down')}</button>` : ''}</div>`;
   const body = (ed ? `<textarea class="eb" oninput="S.drafts['${q.id}'].body=this.value">${esc(d.body)}</textarea>` : esc(d.body)) + (sent ? `<div class="ok-bar"><b>Approved and sent</b> to ${esc(c.draft.to.join(', '))} at ${ftime(q.decidedAt)}${q.edited ? ' with your edits' : ''}.</div>` : '');
   const items = [{ draft: true, open: true, raw: true, date: q.requested, clock: '9:44 AM', ini: 'AG', av: 'ag', title: 'Elle AI Renewals (agent draft)', sub: 'to ' + c.draft.to.join(', ') + ' · ' + d.subject, badge: sent ? 'Sent' : q.status === 'Declined' ? 'Declined' : q.edited ? 'Edited by you' : 'Awaiting approval', badgeCls: sent ? 'grn' : q.status === 'Declined' ? 'red' : 'ylw', body, edit: ed }].concat(c.thread || []);
   h += tlv(items);
-  h += `<div class="cd vsec" style="margin-top:16px">${secH('automated-program', 'pu', 'Agent reasoning')}<div class="vsteps">${c.reasoning.map((r, i) => `<div><b>${i + 1}</b><span>${esc(r)}</span></div>`).join('')}</div></div>`;
   return h;
 }
 function nextSteps(o, steps, key) {
@@ -1526,11 +1678,12 @@ function approve(id) {
 }
 function declineQ(id) { const q = QUEUE.find(x => x.id === id), fb = ($('#decFb') || {}).value || '', o = qOpp(q); ATLAS(o.id, nowTs(), 'update', 'Approval decided: Declined', q.id + ' declined by ' + ME + '.' + (fb ? ' Feedback: ' + fb : ''), { kind: 'approval-decided' }); decide(q, 'Declined', { feedback: fb }); toast('Declined. Feedback sent to the agent.'); }
 function takeOverOpp(o) {
-  if (o.rm) return; const ts = nowTs(), pd0 = driverOf(o);
+  if (o.rm === ME) return; const ts = nowTs(), pd0 = driverOf(o);
   QUEUE.filter(q => q.opp === o.id && q.type === 'Approval' && q.status === 'Awaiting').forEach(q => { q.status = 'Taken over'; q.decidedBy = ME; q.decidedAt = ts; });
   o.rm = ME; ATLAS(o.id, ts, 'update', 'Driver changed: ' + pd0 + ' to RM (' + ME + ')', 'Atlas stops outreach on this renewal. Pending approvals marked Taken over.', { kind: 'driver-changed' });
 }
 function takeOverFromQueue(id) { const q = QUEUE.find(x => x.id === id), o = qOpp(q), prev = qList().map(x => x.id), idx = prev.indexOf(q.id); takeOverOpp(o); if (S.qs === 'awaiting') advanceSel(prev, idx); renderAll(); toast('You took over ' + o.account + '. Driver is now RM.'); }
+function openQueue(id) { S.selQ = id; S.qs = 'all'; S.qt = 'all'; go('queue'); }
 function takeOverOppUI(oid) { const o = OPP(oid); takeOverOpp(o); renderAll(); toast('You took over ' + o.account + '. Driver is now RM.'); }
 function acceptHandoff(id) {
   const q = QUEUE.find(x => x.id === id), o = qOpp(q), ts = nowTs(), prev = qList().map(x => x.id), idx = prev.indexOf(q.id);
@@ -1548,60 +1701,86 @@ function saveActivity(oid) {
 }
 
 /* ============================ ANALYZE ============================ */
-function drawChart() { const ch = $('#autChart'); if (!ch) return; const w = Math.max(520, Math.round(ch.offsetWidth) || 760), h = 280; ch.innerHTML = areaChart(AUT_WEEKS, AUT_PREV, w, h) + '<div class="ctip" id="autTip"></div>'; wireChart(w, h); }
-window.addEventListener('resize', () => { if (S.tab === 'analyze') drawChart(); });
+const AN = { blue: '#0369E9', green: '#13AD68', red: '#DC3626', gold: '#FFBB00', orange: '#FF9046', grey: '#ACB4BD' };
+function anLines(w, h, labels, series, ymax, step, area) {
+  const L = 44, R = 14, T = 10, B = 28, x = i => L + i * ((w - L - R) / (labels.length - 1)), y = v => T + (1 - v / ymax) * (h - T - B);
+  let g = ''; for (let v = 0; v <= ymax; v += step) g += `<line x1="${L}" x2="${w - R}" y1="${y(v)}" y2="${y(v)}" stroke="#E6E9EC" stroke-dasharray="4 5"/><text x="${L - 10}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="#5F6C7A">${v}%</text>`;
+  const xl = labels.map((l, i) => `<text x="${x(i)}" y="${h - 8}" text-anchor="${i === 0 ? 'start' : i === labels.length - 1 ? 'end' : 'middle'}" font-size="11" fill="#5F6C7A">${l}</text>`).join('');
+  const defs = `<defs>${series.map((s, k) => `<linearGradient id="anG${k}${labels.length}${ymax}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${s.c}" stop-opacity=".16"/><stop offset="1" stop-color="${s.c}" stop-opacity="0"/></linearGradient>`).join('')}</defs>`;
+  const ls = series.map((s, k) => `${k === 0 && area ? `<polygon points="${x(0)},${y(0)} ${s.v.map((v, i) => x(i) + ',' + y(v)).join(' ')} ${x(labels.length - 1)},${y(0)}" fill="url(#anG${k}${labels.length}${ymax})"/>` : ''}<polyline points="${s.v.map((v, i) => x(i) + ',' + y(v)).join(' ')}" fill="none" stroke="${s.c}" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" ${s.d ? 'stroke-dasharray="5 5"' : ''}/>${s.v.map((v, i) => `<circle cx="${x(i)}" cy="${y(v)}" r="3.5" fill="#fff" stroke="${s.c}" stroke-width="2"><title>${s.n}, ${labels[i]}: ${v}%</title></circle>`).join('')}`).join('');
+  return `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" style="display:block">${defs}${g}${xl}${ls}</svg>`;
+}
+function anStack(w, h, labels, rows, ymax, step, pct) {
+  const L = 48, R = 8, T = 10, B = 28, n = labels.length, bw = Math.min(48, (w - L - R) / n * .5), y = v => T + (1 - v / ymax) * (h - T - B), cx = i => L + (i + .5) * ((w - L - R) / n);
+  let g = ''; for (let v = 0; v <= ymax; v += step) g += `<line x1="${L}" x2="${w - R}" y1="${y(v)}" y2="${y(v)}" stroke="#E6E9EC" stroke-dasharray="4 5"/><text x="${L - 10}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="#5F6C7A">${v}${pct ? '%' : 'k'}</text>`;
+  const bars = labels.map((l, i) => { let acc = 0; const segs = rows[i].filter(s => s.v); return segs.map((s, si) => { const y1 = y(acc + s.v), y0 = y(acc); acc += s.v; const top = si === segs.length - 1; return `<path d="M${cx(i) - bw / 2},${y0} V${y1 + (top ? 6 : 0)} ${top ? `Q${cx(i) - bw / 2},${y1} ${cx(i) - bw / 2 + 6},${y1} H${cx(i) + bw / 2 - 6} Q${cx(i) + bw / 2},${y1} ${cx(i) + bw / 2},${y1 + 6}` : `H${cx(i) + bw / 2}`} V${y0} Z" fill="${s.c}" stroke="#fff" stroke-width="1"><title>${l}: ${s.v}${pct ? '%' : 'k'}</title></path>`; }).join('') + `<text x="${cx(i)}" y="${h - 8}" text-anchor="middle" font-size="11" fill="#5F6C7A">${l}</text>`; }).join('');
+  return `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" style="display:block">${g}${bars}</svg>`;
+}
+function drawAn() {
+  const W = el => Math.max(300, Math.round(el.offsetWidth) || 600), put = (id, fn) => { const el = document.getElementById(id); if (el) el.innerHTML = fn(W(el)); };
+  const wk = ['Sep 7', 'Sep 14', 'Sep 21', 'Sep 28', 'Oct 5', 'Oct 12'];
+  put('anMonth', w => anStack(w, 250, ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], [[{ v: 120, c: AN.green }, { v: 30, c: AN.red }], [{ v: 140, c: AN.green }, { v: 20, c: AN.red }], [{ v: 180, c: AN.green }, { v: 50, c: AN.red }], [{ v: 170, c: AN.green }, { v: 50, c: AN.red }, { v: 180, c: AN.blue }], [{ v: 390, c: AN.blue }], [{ v: 290, c: AN.blue }]], 400, 50, false));
+  put('anAuto', w => anLines(w, 220, wk, [{ n: 'Task', v: [60, 62, 64, 65, 67, 68], c: AN.blue }, { n: 'Outreach', v: [68, 70, 71, 72, 73, 74], c: AN.green, d: 1 }, { n: 'Inbound', v: [41, 43, 46, 48, 50, 52], c: AN.orange, d: 1 }], 100, 20, true));
+  put('anFlow', w => anLines(w, 220, wk, [{ n: 'Approval request', v: [47, 46, 45, 44, 43, 41], c: AN.blue }, { n: 'Edit', v: [30, 31, 29, 28, 28, 27], c: AN.gold, d: 1 }, { n: 'Denial', v: [4, 5, 5, 5, 6, 6], c: AN.red, d: 1 }], 60, 20, true));
+  put('anDrv', w => anStack(w, 230, wk, [[30, 30, 40], [34, 32, 34], [38, 34, 28], [42, 37, 21], [45, 38, 17], [48, 39, 13]].map(r => [{ v: r[0], c: AN.blue }, { v: r[1], c: AN.gold }, { v: r[2], c: AN.grey }]), 100, 20, true));
+}
+window.addEventListener('resize', () => { if (S.tab === 'analyze') drawAn(); });
 function analyzeView() {
-  const m = METRICS, n = QUEUE.filter(q => q.status === 'Awaiting').length;
-  const K = [['Autonomy rate', m.autonomy + '%', '▲ 29 pts', 'vs. launch', 'Share of renewals the agent finishes on its own. It climbs as the agent learns your business.', 'auto-update', "filterPortfolio('view','All')"], ['Email open rate', m.open + '%', '▲ 3.2%', 'vs. last quarter', 'Share of delivered renewal emails that customers opened.', 'email', "toast('Email open rate: 2,362 of 3,872 delivered emails')"], ['Opportunities worked', m.opps, '▲ 12.4%', 'vs. last quarter', 'Renewal opportunities the agent has engaged this quarter.', 'trend', "filterPortfolio('view','All')"], ['Agent Handling', m.handling, '▲ 8.1%', 'vs. last week', 'Renewals the agent is running end to end right now.', 'bolt', "filterPortfolio('driver','Agent')"], ['RM Queue', m.rmq, '▼ 2', 'vs. last week', 'Items assigned to a renewal manager.', 'users', "filterPortfolio('driver','RM')"], ['Needs Review', n, n > 6 ? '' : '▼ ' + (10 - n), 'waiting on a person', 'Emails and handoffs waiting for a person to approve or take over.', 'review', "go('queue')"]];
-  const days = [['Sun', 312], ['Mon', 284], ['Tue', 412], ['Wed', 271], ['Thu', 205], ['Fri', 238], ['Sat', 176]], mx = 412;
-  const nc = (c, ico, v, l, w, act) => `<div class="nc" style="--c:${c};cursor:pointer" onclick="${act}"><div class="nv">${hz(ico)}${v}</div><div class="nl">${l}</div><div class="bt"><div class="bar" style="width:${w}%;"></div></div></div>`;
-  const open = QUEUE.filter(q => q.status === 'Awaiting').slice(0, 5), tg = { Approval: 'ap', Handoff: 'ho' };
-  return `<div class="ph"><div><h1>Dashboard</h1><small>Elle AI Renewal Agent · EMEA · Updated 2:14 PM</small></div><div class="phr"><span class="pillx">${hz('calendar')}<b>Q4 2026</b> Last 30 days</span><button class="pillx" onclick="toast('Add widget is not part of this walkthrough')">${hz('blocks')}Add widget</button><button class="pillx p" onclick="toast('Export started')">${hz('download')}Export</button></div></div>
-  <div class="kg">${K.map(k => `<div class="kpi" style="cursor:pointer" data-tip="${k[4]}" onclick="${k[6]}"><div class="kpi-h">${k[0]}<span class="kic">${hz(k[5])}</span></div><div class="kv">${k[1]}</div><div class="kd">${k[2] ? `<span class="dl ${k[2][0] === '▼' && k[0] !== 'RM Queue' && k[0] !== 'Needs Review' ? 'dn' : ''}">${k[2]}</span>` : ''}${k[3]}</div></div>`).join('')}</div>
-  <div class="dg"><div class="dcol"><div class="cd"><div class="ar-h"><div><div class="ct">Autonomy rate</div><div class="ar-s">Share of renewals the agent finishes on its own</div></div><div class="ar-lg"><span><i style="background:var(--rb-70)"></i>This quarter</span><span><i style="background:var(--rg-50)"></i>Last quarter</span></div></div>
-    <div class="ar-b"><div class="ar-k"><div class="ar-n">${m.autonomy}<small>%</small></div><div class="ar-d"><span class="dl">▲ 29 pts</span>since launch</div></div>
-      <div class="chart" id="autChart">${areaChart(AUT_WEEKS, AUT_PREV, 860, 320)}<div class="ctip" id="autTip"></div></div></div>
-    <div class="nest"><div class="nest-h">Work in flight<span class="dots3">•••</span></div><div class="nest-g">${nc('var(--rb-70)', 'monitor', m.handling, 'Handled by the agent', 100, "filterPortfolio('driver','Agent')")}${nc('var(--fg-70)', 'user', m.rmq, 'In the RM queue', 60, "filterPortfolio('driver','RM')")}${nc('var(--po-50)', 'caution', n, 'Needs review', 38, "go('queue')")}</div></div></div>
-    <div class="cd pad0"><div class="ct" style="padding-top:26px;">Waiting on a renewal manager<span class="sp"></span><span class="dots3">•••</span></div>
-      <div class="th2"><span>Type</span><span>Account</span><span>Reason</span><span>Due</span><span></span></div>
-      ${open.map(q => `<div class="tr2" style="cursor:pointer" onclick="S.selQ='${q.id}';go('queue')"><span><span class="ch ${tg[q.type]}">${q.type}</span></span><b style="font-weight:600;">${esc(qOpp(q).account)}</b><span class="mut">${esc(q.reason)}</span><span class="mut">${q.due}</span><button class="lk" onclick="event.stopPropagation();S.selQ='${q.id}';go('queue')">Review</button></div>`).join('') || '<div class="tr2"><span class="mut">Nothing is waiting on you.</span></div>'}</div></div>
-    <div class="dcol"><div class="cd"><div class="ct">Most active day<span class="sp"></span><span class="dots3">•••</span></div><div class="bars">${days.map(d => `<div class="bcol ${d[0] === S.day ? 'hl' : ''}" style="cursor:pointer" onclick="S.day='${d[0]}';renderAll()">${d[0] === S.day ? `<span class="bv">${d[1]}</span>` : ''}<div class="b" style="height:${Math.round(d[1] / mx * 112)}px;"></div><span class="lbl">${d[0]}</span></div>`).join('')}</div></div>
-      <div class="cd"><div class="ct">Autonomy vs target<span class="sp"></span><span class="dots3">•••</span></div><div class="gauge">${gaugeSVG(m.autonomy)}<div class="gc"><b>${m.autonomy}%</b><span>On track for 80% target</span></div><button class="btnx" onclick="filterPortfolio('driver','Agent')">Show details</button></div></div></div></div>`;
+  const team = S.an === 'team', k = team ? 3 : 1, eur = n => n >= 1000 ? '€' + (n / 1000).toFixed(2).replace(/\.?0+$/, '') + 'M' : '€' + n + 'k';
+  const tot = 1620 * k, open = 860 * k, won = 610 * k, lost = 150 * k, dots = '<span class="dots3"><i class="hzi mo"></i></span>';
+  const kp = (l, v, s, ic) => `<div class="kpi"><div class="kpi-h">${l}<span class="kic">${hz(ic)}</span></div><div class="kv">${v}</div><div class="kd">${s}</div></div>`;
+  const intents = [['Expanding', 120, 2, AN.green, 30], ['Renewing', 390, 9, AN.blue, 100], ['Evaluating', 170, 5, AN.gold, 44], ['Downsell', 60, 2, AN.orange, 15], ['Not renewing', 70, 2, AN.red, 18]];
+  const rsn = [['Discount or pricing', 14, 310, 100], ['Customer escalation', 8, 190, 57], ['Missing data', 6, 90, 43], ['Low confidence', 5, 120, 36], ['Policy limit', 3, 60, 21], ['Other', 2, 20, 12]];
+  const cats = [['Scheduling', 42, 78, 6, 100], ['Acknowledgement', 36, 86, 4, 86], ['Information request', 31, 48, 17, 74], ['Pricing question', 28, 18, 38, 66], ['Objection', 17, 10, 49, 40], ['Cancellation', 9, 0, null, 21]];
+  const dl = (t, good) => `<span class="dl ${good === false ? 'bad' : ''}">${t}</span>`;
+  const tile = (l, v, d, good) => `<div class="an-t"><small>${l}</small><b>${v}</b>${dl(d, good)}</div>`;
+  const lg = items => `<div class="an-lg">${items.map(i => `<span><i style="background:${i[1]}"></i>${i[0]}</span>`).join('')}</div>`;
+  return `<div class="ph"><div><h1>Analyze</h1><small>Elle AI Renewal Agent · EMEA · Updated 2:14 PM</small></div><div class="phr"><div class="vs"><span class="${!team ? 'on' : ''}" onclick="S.an='me';renderAll()">Me</span><span class="${team ? 'on' : ''}" onclick="S.an='team';renderAll()">My team</span></div><button class="pillx" onclick="toast('Changing the period is not part of this walkthrough')">${hz('calendar')}<b>H2 2026</b> Jul to Dec</button></div></div>
+  <div class="kg" style="grid-template-columns:repeat(5,1fr)">${kp('Total', eur(tot), (team ? 123 : 41) + ' renewals', 'dashboard')}${kp('Open', eur(open), (team ? 69 : 23) + ' renewals', 'review')}${kp('Closed won', eur(won), (team ? 42 : 14) + ' renewals', 'double-tick')}${kp('Closed lost', eur(lost), (team ? 12 : 4) + ' renewals', 'caution')}${kp('Retention rate', '80%', 'won / (won + lost), by amount', 'trend')}</div>
+  <div class="an-c"><div class="ct">Pipeline split${dots}</div><p>Share of the period total by amount.</p><div class="an-bar"><i style="flex:53;background:${AN.blue}"></i><i style="flex:38;background:${AN.green}"></i><i style="flex:9;background:${AN.red}"></i></div>${lg([['Open 53%', AN.blue], ['Closed won 38%', AN.green], ['Closed lost 9%', AN.red]])}</div>
+  <div class="an-g2" style="grid-template-columns:1fr 1.25fr"><div class="an-c"><div class="ct">Intent of open renewals${dots}</div><p>Weighted by amount. Select a row to filter Portfolio.</p>${intents.map(r => `<div class="an-row" onclick="filterPortfolio('intent','${r[0]}')"><span>${r[0]}</span><div class="tr"><i style="width:${r[4]}%;background:${r[3]}"></i></div><b>€${r[1] * k}k</b><em>${r[2] * k}</em></div>`).join('')}<div class="an-div"></div><div class="an-row" onclick="filterPortfolio('view','All')"><span>No response</span><div class="tr"><i style="width:12%;background:${AN.grey}"></i></div><b>€${50 * k}k</b><em>${3 * k}</em></div></div>
+    <div class="an-c"><div class="ct">Renewals by due month${dots}</div><p>Amount in € thousands. Future months are open only.</p>${lg([['Renewed', AN.green], ['Lost', AN.red], ['Open', AN.blue]])}<div id="anMonth" class="an-ch"></div></div></div>
+  <div class="an-c"><div class="ct">Autonomy metrics${dots}</div><p>Last 6 weeks, change vs. the prior 6 weeks. Email only in V1.</p><div class="an-tl">${tile('Task autonomy', '68%', '<i class="hzi up"></i> 4 pts')}${tile('Outreach autonomy', '74%', '<i class="hzi up"></i> 3 pts')}${tile('Inbound autonomy', '52%', '<i class="hzi up"></i> 6 pts')}${tile('Approval request rate', '41%', '<i class="hzi dn"></i> 2 pts')}${tile('Edit rate', '27%', '<i class="hzi dn"></i> 3 pts')}${tile('Denial rate', '6%', '<i class="hzi up"></i> 1 pt', false)}</div>
+    <div class="an-g2" style="margin:24px 0 0"><div class="an-sub"><h4>Autonomy rates</h4>${lg([['Task', AN.blue], ['Outreach', AN.green], ['Inbound', AN.orange]])}<div id="anAuto" class="an-ch"></div><p>Agent tasks over all tasks, per week.</p></div>
+      <div class="an-sub"><h4>Approval flow</h4>${lg([['Approval request', AN.blue], ['Edit', AN.gold], ['Denial', AN.red]])}<div id="anFlow" class="an-ch"></div><p>Request rate is over agent tasks. Edit and denial rates are over approvals.</p></div></div></div>
+  <div class="an-g2" style="grid-template-columns:1.2fr 1fr"><div class="an-c"><div class="ct">Driver distribution${dots}</div><p>Share of open renewals by driver, per week.</p>${lg([['Owned by agent', AN.blue], ['Awaiting you', AN.gold], ['Owned by you', AN.grey]])}<div id="anDrv" class="an-ch"></div></div>
+    <div class="an-c"><div class="ct">Handoffs by reason${dots}</div><p>${38 * k} handoffs in the period. Select a row to filter Portfolio.</p>${rsn.map(r => `<div class="an-row" onclick="filterPortfolio('view','Awaiting me')"><span>${r[0]}</span><div class="tr"><i style="width:${r[3]}%;background:${r[0] === 'Other' ? AN.grey : AN.orange}"></i></div><b>${r[1] * k}</b><em>€${r[2] * k}k</em></div>`).join('')}</div></div>
+  <div class="an-c"><div class="ct">Inbound replies by category${dots}</div><p>${163 * k} replies in the period. Bar length is volume, split by who handled it.</p>${lg([['Handled by agent', AN.blue], ['Handled by you', AN.grey]])}
+    <div class="an-cat"><div class="hd"><span>Category</span><span></span><span>Replies</span><span>Agent handled</span><span>Edit rate</span></div>${cats.map(r => `<div class="an-cr"><span>${r[0]}</span><div class="tr"><i style="width:${r[4]}%;background:linear-gradient(90deg,${AN.blue} ${r[2]}%,${AN.grey} ${r[2]}%)"></i></div><b>${r[1] * k}</b><b>${r[2]}%</b><span>${r[3] == null ? 'n/a' : r[3] + '%'}</span></div>`).join('')}</div></div>`;
 }
 
 /* ============================ PORTFOLIO ============================ */
+const VIEWS = ['All', 'Assigned to me', 'Awaiting me', 'Past due', 'Completed'];
+function viewPass(o, v) {
+  if (v === 'Completed') return o.res !== 'Open';
+  if (o.res !== 'Open') return false;
+  if (v === 'Assigned to me') return o.owner === ME || o.rm === ME;
+  if (v === 'Awaiting me') return ['Agent · Awaiting approval', 'Handoff pending'].includes(driverOf(o));
+  if (v === 'Past due') return daysTo(o.due) < 0;
+  return true;
+}
 function pRows() {
-  const f = S.f, v = S.view;
+  const f = S.f;
   let rows = OPPS.filter(o => {
-    if (v === 'Completed' ? o.res === 'Open' : o.res !== 'Open') return false;
-    if (v === 'Assigned to me' && !(o.owner === ME || o.rm === ME)) return false;
-    if (v === 'Awaiting me' && !['Agent · Awaiting approval', 'Handoff pending'].includes(driverOf(o))) return false;
-    if (v === 'Past due' && !(daysTo(o.due) < 0)) return false;
+    if (!viewPass(o, S.view)) return false;
     if (f.q && !(o.name + ' ' + o.account).toLowerCase().includes(f.q.toLowerCase())) return false;
     if (f.stage && o.stage !== f.stage) return false; if (f.driver && driverOf(o) !== f.driver) return false;
     if (f.owner && o.owner !== f.owner) return false; if (f.playbook && o.playbook !== f.playbook) return false;
+    if (f.intent && o.intent !== f.intent) return false;
     return true;
   });
-  const K = { name: o => o.account, target: o => o.target, stage: o => stageIdx(o), driver: o => driverOf(o), health: o => o.health, due: o => o.due, owner: o => o.owner, intent: o => o.intent };
+  const K = { name: o => o.account, target: o => o.target, stage: o => OWN_STG.indexOf(o.stage), driver: o => driverOf(o), health: o => o.health, due: o => o.due, owner: o => o.owner, intent: o => o.intent };
   const g = K[S.sort.k] || K.due; rows.sort((a, b) => (g(a) < g(b) ? -1 : g(a) > g(b) ? 1 : 0) * S.sort.d);
   return rows;
 }
 function setF(k, v) { S.f[k] = v; const pos = ($('#psrch') || {}).selectionStart; renderAll(); const i = $('#psrch'); if (k === 'q' && i) { i.focus(); i.setSelectionRange(pos, pos); } }
+function pendingQ(o) { return QUEUE.find(q => q.opp === o.id && q.status === 'Awaiting'); }
 function portfolioView() {
-  const all = OPPS.filter(o => o.res === 'Open'), rows = pRows();
-  const D = { 'Agent': all.filter(o => driverOf(o) === 'Agent').length, 'Agent · Awaiting approval': all.filter(o => driverOf(o) === 'Agent · Awaiting approval').length, 'Handoff pending': all.filter(o => driverOf(o) === 'Handoff pending').length, 'RM': all.filter(o => driverOf(o) === 'RM').length };
-  const col = { 'Agent': '#0369E9', 'Agent · Awaiting approval': '#D9A116', 'Handoff pending': '#DC3626', 'RM': '#12995B' };
-  const avg = Math.round(all.reduce((a, o) => a + o.health, 0) / all.length), pastDue = all.filter(o => daysTo(o.due) < 0).length, auto = Math.round((D['Agent'] + D['Agent · Awaiting approval']) / all.length * 100);
-  const tile = (c, ic, v, l, s, act) => `<div class="cd vk ${c}" style="cursor:pointer" onclick="${act}"><span class="ico">${hz(ic)}</span><div><b>${v}</b><span>${l}</span><small>${s}</small></div></div>`;
-  const stCount = OWN_STG.slice(0, 3).map(s => [s, all.filter(o => o.stage === s).length]), mx = Math.max(...stCount.map(x => x[1]), 1);
-  const th = (k, l) => `<th onclick="S.sort={k:'${k}',d:S.sort.k==='${k}'?-S.sort.d:1};renderAll()">${l}${S.sort.k === k ? (S.sort.d > 0 ? ' ↑' : ' ↓') : ''}</th>`;
+  const rows = pRows();
+  const th = (k, l) => `<th onclick="S.sort={k:'${k}',d:S.sort.k==='${k}'?-S.sort.d:1};renderAll()">${l}${S.sort.k === k ? (S.sort.d > 0 ? ' <i class="hzi up"></i>' : ' <i class="hzi dn"></i>') : ''}</th>`;
   const sel = (k, l, opts) => `<select class="vsel" onchange="setF('${k}',this.value)"><option value="">${l}</option>${opts.map(o => `<option ${S.f[k] === o ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select>`;
-  const body = S.pv === 'table' ? `<div class="cd" style="padding:0;overflow-x:auto;"><table class="vtbl"><thead><tr>${th('name', 'Opportunity')}${th('stage', 'Stage')}${th('target', 'Target amount')}${th('driver', 'Driver')}${th('health', 'Health')}${th('due', 'Due')}${th('owner', 'Owner')}${th('intent', 'Intent')}<th>Next step</th></tr></thead><tbody>${rows.map(o => `<tr onclick="openOpp('${o.id}','portfolio')"><td><div class="opp">${av(o.account, 40)}<div><b>${esc(o.account)}</b><small>${esc(o.playbook)} · ${esc(o.geo)}</small></div></div></td><td class="stg"><span>${esc(o.stage)}</span>${seg(o)}</td><td style="font-weight:600">${amt(o, o.target)}</td><td><div class="drv">${drv(o)}${['Agent', 'Agent · Awaiting approval'].includes(driverOf(o)) ? `<button class="vbtn sm" onclick="event.stopPropagation();takeOverOppUI('${o.id}')">Take over</button>` : ''}</div></td><td>${ring(o.health, 36)}</td><td><span class="${daysTo(o.due) < 0 ? 'late' : ''}">${fdate(o.due)}</span><small class="rel ${daysTo(o.due) < 0 ? 'late' : ''}">${dueIn(o)}</small></td><td><div class="own" onclick="event.stopPropagation();setF('owner','${esc(o.owner)}')">${av(o.owner, 28)}${esc(o.owner)}</div></td><td>${intent(o.intent)}</td><td><div class="nx" title="${esc(o.nextStep)}">${esc(o.nextStep)}</div></td></tr>`).join('') || `<tr><td colspan="9" class="vempty">No opportunities match these filters.</td></tr>`}</tbody></table><div class="vcnt" style="padding-bottom:14px">Showing ${rows.length} opportunities</div></div>`
-    : `<div class="vboard">${OWN_STG.map(st => { const cs = rows.filter(o => (o.stage === 'Closed Lost' ? 'Closed Won' : o.stage) === st); return `<div class="vcol"><h4>${st === 'Closed Won' ? 'Closed' : st}<span class="vc">${cs.length}</span></h4>${cs.map(o => `<div class="vcard" onclick="openOpp('${o.id}','portfolio')"><div class="t">${av(o.account, 36)}<div><b>${esc(o.account)}</b><small>${amt(o, o.target)} · ${dueIn(o)}</small></div><span style="margin-left:auto">${ring(o.health, 32)}</span></div><div class="b">${drv(o)}${intent(o.intent)}</div></div>`).join('') || '<div class="vmut" style="padding:8px;font-size:13px">Nothing here</div>'}</div>`; }).join('')}</div>`;
-  return `<div class="vkp">${tile('b', 'dashboard', all.length, 'Open opportunities', 'Show all', "filterPortfolio('view','All')")}${tile('g', 'automated-program', auto + '%', 'Agent driven', D['Agent'] + D['Agent · Awaiting approval'] + ' of ' + all.length + ' with Atlas', "filterPortfolio('driver','Agent')")}${tile('y', 'review', D['Agent · Awaiting approval'] + D['Handoff pending'], 'Waiting on you', 'Approvals and handoffs', "filterPortfolio('view','Awaiting me')")}${tile('r', 'caution', pastDue, 'Past due', 'Avg health ' + avg, "filterPortfolio('view','Past due')")}</div>
-    <div class="vch"><div class="cd"><h3>Who is driving</h3><div class="vstack">${Object.keys(D).map(k => `<i style="flex:${D[k]};background:${col[k]};cursor:pointer" title="${k}: ${D[k]}" onclick="filterPortfolio('driver','${k}')"></i>`).join('')}</div><div class="vlg">${Object.keys(D).map(k => `<span style="cursor:pointer" onclick="filterPortfolio('driver','${k}')"><i style="background:${col[k]}"></i>${k} <b>${D[k]}</b></span>`).join('')}</div></div>
-    <div class="cd"><h3>Pipeline by stage</h3><div class="vbars">${stCount.map(x => `<div style="cursor:pointer" onclick="filterPortfolio('stage','${x[0]}')"><span>${x[0]}</span><div class="tr"><i style="width:${x[1] / mx * 100}%"></i></div><b>${x[1]}</b></div>`).join('')}</div></div></div>
-    <div class="vtool">${['All', 'Assigned to me', 'Awaiting me', 'Past due', 'Completed'].map(v => `<span class="vchip ${S.view === v ? 'on' : ''}" onclick="S.view='${v}';renderAll()">${v}</span>`).join('')}${sel('stage', 'Stage', OWN_STG.concat(['Closed Lost']))}${sel('driver', 'Driver', ['Agent', 'Agent · Awaiting approval', 'Handoff pending', 'RM'])}${sel('owner', 'Owner', RMS)}${sel('playbook', 'Playbook', PLAYBOOKS)}${Object.values(S.f).some(Boolean) ? `<button class="vbtn sm t" onclick="S.f={q:'',stage:'',driver:'',owner:'',playbook:''};renderAll()">Clear filters</button>` : ''}<div class="vsrch" style="margin-left:auto">${hz('search')}<input id="psrch" placeholder="Search opportunities" value="${esc(S.f.q)}" oninput="setF('q',this.value)"></div></div>${body}`;
+  const body = `<div class="cd" style="padding:0;overflow-x:auto;"><table class="vtbl"><thead><tr>${th('name', 'Opportunity')}${th('stage', 'Stage')}${th('target', 'Target amount')}${th('driver', 'Driver')}${th('health', 'Health')}${th('due', 'Due')}${th('owner', 'Owner')}${th('intent', 'Intent')}<th>Next step</th></tr></thead><tbody>${rows.map(o => { const pq = pendingQ(o); return `<tr onclick="openOpp('${o.id}','portfolio')"><td><div class="opp"><div><b>${esc(o.account)}</b><small>${esc(o.playbook)} · ${esc(o.geo)}</small></div></div></td><td>${esc(o.stage)}</td><td style="font-weight:600">${amt(o, o.target)}</td><td><div class="drv">${drv(o)}${pq ? `<a class="vlink sm" onclick="event.stopPropagation();openQueue('${pq.id}')">Open in queue</a>` : ''}${o.res === 'Open' && o.rm !== ME ? `<button class="vbtn sm" onclick="event.stopPropagation();takeOverOppUI('${o.id}')">Take over</button>` : ''}</div></td><td>${ring(o.health, 36)}</td><td><span class="${daysTo(o.due) < 0 ? 'late' : ''}">${fdate(o.due)}</span><small class="rel ${daysTo(o.due) < 0 ? 'late' : ''}">${dueIn(o)}</small></td><td><div class="own" onclick="event.stopPropagation();setF('owner','${esc(o.owner)}')">${esc(o.owner)}</div></td><td>${intent(o.intent)}</td><td><div class="nx" title="${esc(o.nextStep)}">${esc(o.nextStep)}</div></td></tr>`; }).join('') || `<tr><td colspan="9" class="vempty">No opportunities match these filters.</td></tr>`}</tbody></table><div class="vcnt" style="padding-bottom:14px">Showing ${rows.length} opportunities</div></div>`;
+  return `<div class="vtool">${VIEWS.map(v => `<span class="vchip ${S.view === v ? 'on' : ''}" onclick="S.view='${v}';renderAll()">${v}<span class="vn">${OPPS.filter(o => viewPass(o, v)).length}</span></span>`).join('')}${sel('stage', 'Stage', OWN_STG.concat(['Closed Lost']))}${sel('driver', 'Driver', ['Agent', 'Agent · Awaiting approval', 'Handoff pending', 'RM'])}${sel('owner', 'Owner', RMS)}${sel('intent', 'Intent', ['Expanding', 'Renewing', 'Evaluating', 'Downsell', 'Not renewing'])}${sel('playbook', 'Playbook', PLAYBOOKS)}${Object.values(S.f).some(Boolean) ? `<button class="vbtn sm t" onclick="S.f={q:'',stage:'',driver:'',owner:'',playbook:'',intent:''};renderAll()">Clear filters</button>` : ''}<div class="vsrch" style="margin-left:auto">${hz('search')}<input id="psrch" placeholder="Search opportunities" value="${esc(S.f.q)}" oninput="setF('q',this.value)"></div></div>${body}`;
 }
 
 /* ============================ OPPORTUNITY ============================ */
@@ -1616,7 +1795,7 @@ function evItems(o) {
 }
 function timelineBlock(o) {
   const a = S.addAct, items = evItems(o);
-  return `<div class="ov-tabs">${[['', 'All'], ['email', 'Emails'], ['call', 'Calls'], ['meeting', 'Meetings'], ['update', 'Updates']].map(x => `<span class="vchip ${S.tlType === x[0] ? 'on' : ''}" onclick="S.tlType='${x[0]}';renderAll()">${x[1]}</span>`).join('')}<span class="sp"></span><button class="vbtn sm" onclick="S.addAct=S.addAct?null:{type:'email',subject:'',to:'',body:''};renderAll()">+ Add activity</button></div>
+  return `<div class="ov-tabs"><span class="vh-tl">Timeline</span><span class="sp"></span><button class="vbtn sm" onclick="S.addAct=S.addAct?null:{type:'email',subject:'',to:'',body:''};renderAll()">+ Add activity</button></div>
     ${a ? `<div class="cd vsec vact-f"><div class="oa-g"><div><label>Type</label><select class="vsel" id="actType" style="width:100%;border-radius:12px"><option value="email" ${a.type === 'email' ? 'selected' : ''}>Email</option><option value="call">Call</option><option value="meeting">Meeting</option></select></div><div><label>Subject</label><input class="vin" id="actSubj" value="${esc(a.subject)}" placeholder="Subject"></div><div class="w"><label>Notes or message</label><textarea class="vin" id="actBody" rows="4">${esc(a.body)}</textarea></div></div><div style="display:flex;gap:12px;margin-top:14px"><button class="vbtn p sm" onclick="saveActivity('${o.id}')">Save to timeline</button><button class="vbtn t sm" onclick="S.addAct=null;renderAll()">Cancel</button></div></div>` : ''}
     ${items.length ? tlv(items) : '<div class="cd vempty">No activities match this filter.</div>'}`;
 }
@@ -1630,9 +1809,8 @@ function handoffBlock(o) {
 }
 function oppView() {
   const o = OPP(S.opp), d = driverOf(o), pend = QUEUE.find(q => q.type === 'Handoff' && q.opp === o.id && q.status === 'Awaiting');
-  const cta = pend ? `<button class="vbtn p" onclick="acceptHandoff('${pend.id}')">Accept handoff</button>` : ['Agent', 'Agent · Awaiting approval'].includes(d) ? `<button class="vbtn" onclick="takeOverOppUI('${o.id}')">Take over</button>` : o.rm ? `<span class="vc green">${hz('double-tick')}${o.rm === ME ? 'You own this' : 'Owned by ' + o.rm}</span>` : '';
-  const tabs = [['timeline', 'Timeline']].concat(hasHO(o) ? [['handoff', 'Handoff brief']] : []);
-  const side = `<div class="ov-side"><div class="cd"><h4>Renewal</h4><div class="ov-f">${fld('Stage', esc(o.stage))}${fld('Status', `<span class="vc ${({ 'Not started': '', Outreach: 'blue', Engaged: 'purple', Completed: 'green' })[o.status] || ''}">${esc(o.status)}</span>`)}${fld('Intent', intent(o.intent))}${fld('Resolution', esc(o.res))}${fld('Playbook', `<span class="vlink" onclick="filterPortfolio('playbook','${esc(o.playbook)}')">${esc(o.playbook)}</span>`)}${fld('Booking type', esc(o.booking))}</div></div>
+  const qp = QUEUE.find(q => q.opp === o.id && q.status === 'Awaiting'), cta = (qp ? `<button class="vbtn" onclick="openQueue('${qp.id}')">Open in Action Queue</button>` : '') + (pend ? `<button class="vbtn p" onclick="acceptHandoff('${pend.id}')">Accept handoff</button>` : o.res === 'Open' && o.rm !== ME ? `<button class="vbtn" onclick="takeOverOppUI('${o.id}')">Take over</button>` : o.rm === ME ? `<span class="vc">${hz('double-tick')}You own this</span>` : '');
+    const side = `<div class="ov-side"><div class="cd"><h4>Renewal</h4><div class="ov-f">${fld('Stage', esc(o.stage))}${fld('Status', `<span class="vc ${({ Completed: 'green' })[o.status] || ''}">${esc(o.status)}</span>`)}${fld('Intent', intent(o.intent))}${fld('Resolution', esc(o.res))}${fld('Playbook', `<span class="vlink" onclick="filterPortfolio('playbook','${esc(o.playbook)}')">${esc(o.playbook)}</span>`)}${fld('Booking type', esc(o.booking))}</div></div>
     <div class="cd"><h4>Commercials</h4><div class="ov-f two">${fld('Target', amt(o, o.target))}${fld('Gross renewal', amt(o, o.gross))}${fld('Forecast', amt(o, o.forecast))}${fld('Change', (o.change < 0 ? '-' : o.change > 0 ? '+' : '') + amt(o, Math.abs(o.change)))}${fld('Final amount', amt(o, o.final))}${fld('Currency', 'EUR')}</div></div>
     <div class="cd"><h4>Dates</h4><div class="ov-f two">${fld('Due', fdate(o.due))}${fld('Close date', fdate(o.close))}${fld('Intent lead time', o.leadTime ? o.leadTime + ' days' : '')}${fld('Last touch', fdate(o.lastTouch))}</div></div>
     <div class="cd"><h4>Contacts</h4>${o.contacts.map(c => `<div class="ov-ct">${av(c.name, 36)}<div style="flex:1;min-width:0"><b>${esc(c.name)}</b><small>${esc(c.role)}</small><span class="vc sm ${({ Responsive: 'green', 'No reply': '', Bounced: 'red' })[c.eng] || ''}" style="margin-top:4px">${esc(c.eng)}</span><div class="vact" style="margin-top:8px"><button class="vbtn sm" onclick="contactEmail('${o.id}','${esc(c.name)}')">Email</button><button class="vbtn sm t" onclick="contactCall('${o.id}','${esc(c.name)}')">Call</button></div></div></div>`).join('')}</div>
@@ -1640,7 +1818,7 @@ function oppView() {
   return `<div class="ov-wrap"><div class="ov-main"><div class="cd ov-hero"><div class="vh-top">${av(o.account, 64)}<div class="vh-t"><h2 style="font-size:26px;line-height:34px">${esc(o.name)}</h2><small>${esc(o.playbook)} · ${esc(o.geo)} · Salesforce ${esc(o.oppId)} · <span class="vlink" onclick="toast('Opening Salesforce is not part of this walkthrough')">View in Salesforce</span></small></div><div class="vh-a">${cta}</div></div>${metrics(o)}${path(o)}</div>
     ${pend ? `<div class="vbanner risk"><span class="bi" style="color:#C2410C">${hz('caution')}</span><div><b>Handoff pending</b><span>${esc(pend.reason)}, routed to ${esc(pend.recipient)}. Accept to take over from the agent.</span></div><span class="sp"></span><button class="vbtn p sm" onclick="acceptHandoff('${pend.id}')">Accept</button></div>` : ''}
     <div class="ov-grid2">${side}<div><div class="cd vsec vsum">${secH('automated-program', 'pu', 'Agent summary', `<span class="vlink" style="font-size:12px;text-transform:none;letter-spacing:0" onclick="askAtlas('${o.id}','Summarize the latest activity')">Ask Atlas</span>`)}<div class="vtxt">${esc(o.summary)}</div></div>
-      ${tabs.length > 1 ? `<div class="ov-tabs">${tabs.map(t => `<span class="vchip ${S.otab === t[0] ? 'on' : ''}" onclick="S.otab='${t[0]}';renderAll()" style="padding:6px 16px;font-size:13px">${t[1]}</span>`).join('')}</div>` : ''}${S.otab === 'handoff' && hasHO(o) ? handoffBlock(o) : timelineBlock(o)}</div></div></div>${aiPanel(o)}</div>`;
+      ${timelineBlock(o)}</div></div></div>${aiPanel(o)}</div>`;
 }
 
 /* ---------- AI assistant + trace ---------- */
@@ -1679,6 +1857,22 @@ function editDraft(i) { const o = OPP(curOpp()), d = chatOf(o)[i].draft; if (S.t
 /* ---------- boot ---------- */
 document.querySelectorAll('[data-hz]').forEach(el => { el.outerHTML = hz(el.dataset.hz); });
 renderAll();
+
+
+HDR.init({
+  user: { name: 'James Okafor', role: 'Renewal manager', ini: 'JO' }, toast: m => toast(m), home: () => go('queue'),
+  pending: () => QUEUE.filter(q => q.status === 'Awaiting').map(q => ({ t: qOpp(q).account, s: q.type + ' · ' + q.reason + ' · Due ' + fshort(q.due), go: () => openQueue(q.id) })),
+  search: v => OPPS.filter(o => o.account.toLowerCase().includes(v.toLowerCase())).slice(0, 8).map(o => ({ t: o.account, s: o.stage + ' · ' + amt(o, o.target) + ' · ' + driverOf(o), go: () => openOpp(o.id, S.tab === 'opp' ? S.from : S.tab) })),
+  suggest: ['What needs my attention today?', 'Which renewals are at risk?', 'How is the agent doing?'],
+  ask: t => {
+    t = t.toLowerCase(); const aw = QUEUE.filter(q => q.status === 'Awaiting'), ap = aw.filter(q => q.type === 'Approval').length;
+    if (/attention|today|waiting|queue|approve|review/.test(t)) return aw.length ? 'You have ' + aw.length + ' items waiting: ' + ap + ' approvals and ' + (aw.length - ap) + ' handoffs.\n\nFirst up: ' + aw.slice(0, 3).map(q => qOpp(q).account + ' (' + q.type.toLowerCase() + ', due ' + fshort(q.due) + ')').join(', ') + '.' : 'Nothing is waiting on you. Your queue is empty.';
+    if (/risk|churn|health/.test(t)) { const r = OPPS.filter(o => o.res === 'Open' && o.health < 50).sort((a, b) => a.health - b.health).slice(0, 4); return r.length + ' open renewals have a health score below 50:\n' + r.map(o => '- ' + o.account + ' (health ' + o.health + ', ' + amt(o, o.target) + ', ' + dueIn(o) + ')').join('\n'); }
+    if (/agent|autonomy|doing|perform/.test(t)) return 'Autonomy rate is ' + METRICS.autonomy + '%, up 29 pts since launch. The agent is handling ' + METRICS.handling + ' renewals end to end and ' + METRICS.rmq + ' are with renewal managers.';
+    if (/won|closed|renewed/.test(t)) { const w = OPPS.filter(o => o.res === 'Won'); return w.length + ' renewals are closed won in this view, worth ' + money('€', w.reduce((a, o) => a + (o.final || 0), 0)) + '.'; }
+    return 'I can tell you what needs your attention, which renewals are at risk, or how the agent is doing. Try one of the suggestions.';
+  }
+});
 
 </script>
 </body>
