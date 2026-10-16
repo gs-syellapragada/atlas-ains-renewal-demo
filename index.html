@@ -1009,7 +1009,7 @@
   </div>
 </div>
 
-<div class="vsw"><a href="v2.html" title="Left arrow">Cockpit</a><a class="on" href="index.html">Console</a></div>
+<div class="vsw"><a href="v2.html#app" title="Left arrow">Cockpit</a><a class="on" href="index.html">Console</a></div>
 <div class="toast-wrap" id="toastWrap"></div>
 
 <nav class="rail" id="rail" style="display:none;"><div class="rail-in" id="railIn"></div></nav>
@@ -1734,7 +1734,7 @@ const Deck = {
     if (k === 'Escape') { this.menu(false); this.notes(false); App.closeDrawer(); return; }
     if ((e.metaKey || e.ctrlKey) && k.toLowerCase() === 'r') return;
     if (typing) return;
-    if (k === 'ArrowLeft' && !/[?&]deck=1/.test(location.search)) { location.href = 'v2.html'; return; }
+    if (k === 'ArrowLeft' && !/[?&]deck=1/.test(location.search)) { location.href = 'v2.html#app'; return; }
     if (k === 'ArrowRight' || k === 'Enter') this.action();
     else if (k === 'ArrowLeft') this.to(this.i - 1);
     else if (k === 'PageDown' || k === ']' || k === ' ' || k === 'ArrowDown') this.to(this.i + 1);
