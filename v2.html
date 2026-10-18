@@ -1682,6 +1682,44 @@ function isoD(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padSt
   TRACE.filter(t => t.opp === o.id).forEach(t => { if (typeof t.detail === 'string') t.detail = t.detail.replace(new RegExp('health ' + oldHealth, 'g'), 'health 43'); });
 })();
 
+/* ---------- Manchester Westlake: the handoff thread is dated Oct 16 and health is 64 ---------- */
+(function () {
+  const o = OPPK('manchester'), q = QUEUE.find(x => x.opp === o.id); if (!o || !q) return;
+  const evs = EVENTS.filter(e => e.opp === o.id), last = evs.map(e => e.ts.slice(0, 10)).sort().pop(), NEW = '2026-10-16';
+  const fixD = x => (x && x.slice(0, 10) === last ? NEW + x.slice(10) : x);
+  evs.forEach(e => { e.ts = fixD(e.ts); }); TRACE.filter(t => t.opp === o.id).forEach(t => { t.ts = fixD(t.ts); });
+  (q.c.thread || []).forEach(it => { if (it.date === last) it.date = NEW; }); q.requested = NEW; o.contacts.forEach(c => { if (c.last === last) c.last = NEW; });
+  o.health = 64;
+  const fix = t => t.replace(/over on [A-Z][a-z]{2} \d+/, 'over on Oct 16').replace('41, down from 68', '64, down from 71').replace('health 68 in June, now 41', 'health 71 in June, now 64');
+  o.summary = fix(o.summary); q.detail = fix(q.detail); if (q.c.summary) q.c.summary = fix(q.c.summary);
+  TRACE.filter(t => t.opp === o.id).forEach(t => { if (typeof t.detail === 'string') t.detail = fix(t.detail); });
+  evs.forEach(e => { if (typeof e.body === 'string') e.body = fix(e.body); });
+  (AI_SEED.manchester || []).forEach(r => { if (typeof r[1] === 'string') r[1] = r[1].replace(/\(Oct \d+\)/, '(Oct 16)'); });
+})();
+
+/* ---------- long-tail book: nothing above 20,000, and the first ten queue accounts sit between 10,000 and 15,000 ---------- */
+(function () {
+  const fmt = n => n.toLocaleString('en-GB'), kfmt = n => (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+  let seed = 424242; const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+  const fixed = { carlson: 12000, manchester: 12800, nordlicht: 13400 }, plan = new Map();
+  QUEUE.slice(0, 10).map(q => OPP(q.opp)).forEach(o => plan.set(o, fixed[o.key] || Math.round((10000 + rnd() * 5000) / 10) * 10));
+  OPPS.forEach(o => { if (!plan.has(o) && o.target > 20000) plan.set(o, Math.round((2500 + (o.target - 20000) / 98000 * 17300) / 100) * 100); });
+  const swap = (obj, pairs, exact) => { const seen = new Set(); const walk = x => { if (!x || typeof x !== 'object' || seen.has(x)) return; seen.add(x); for (const k of Object.keys(x)) { const v = x[k]; if (typeof v === 'string') { let r = (exact && exact[v] !== undefined) ? exact[v] : v; for (const [a, b] of pairs) r = r.split(a).join(b); x[k] = r; } else walk(v); } }; walk(obj); };
+  for (const [o, nt] of plan) {
+    const ot = o.target, ratio = o.forecast / ot, key = o.key; let nf = Math.round(nt * ratio / 10) * 10;
+    if (key === 'carlson') nf = 13968;
+    const pairs = [['€' + fmt(ot), '€' + fmt(nt)], ['EUR ' + fmt(ot), 'EUR ' + fmt(nt)], ['€' + Math.round(ot / 1000) + 'K', '€' + kfmt(nt)], [fmt(ot), fmt(nt)]];
+    let exact = null;
+    if (key === 'carlson') { pairs.unshift(['120 existing licenses at €480: €57,600', '25 existing licenses at €480: ‑12,000'.replace('‑', '€')], ['15 additional licenses at €480: €7,200', '5 additional licenses at €480: €2,400'], ['Volume discount of 3%: -€1,944', 'Volume discount of 3%: -€432'], ['Total: €62,856 per year', 'Total: €13,968 per year'], ['€62,856', '€13,968'], ['€7,200', '€2,400'], ['-€1,944', '-€432'], ['135 licenses', '30 licenses'], ['15 additional', '5 additional'], ['15 more licenses', '5 more licenses'], ['15 added licenses', '5 added licenses'], ['15 licenses', '5 licenses'], ['€7.2K', '€2.4K']); exact = { '120': '25', '15': '5', '135': '30' }; }
+    const scope = [EVENTS.filter(e => e.opp === o.id), TRACE.filter(t => t.opp === o.id), QUEUE.filter(q => q.opp === o.id), { s: o.summary, n: o.nextStep }, AI_SEED[key] || null];
+    const holder = { s: o.summary, n: o.nextStep };
+    scope.forEach((sc, i) => { if (!sc) return; if (i === 3) { swap(holder, pairs); } else if (key === 'carlson' && i === 2) { swap(sc, pairs, exact); } else swap(sc, pairs); });
+    o.summary = holder.s; o.nextStep = holder.n;
+    o.target = nt; o.gross = nt; o.forecast = nf; o.change = nf - nt; if (o.res === 'Won') o.final = nt; else if (o.res === 'Lost') o.final = 0;
+  }
+  const vq = QUEUE.find(q => OPP(q.opp).key === 'veldt'), vo = OPPK('veldt'); if (vq && vo) swap(vq, [['\u202429,140'.replace('\u2024','\u20ac'), '\u20ac' + fmt(Math.round(vo.target * 0.94))]]);
+})();
+
 
 const AUT_WEEKS = [38, 41, 43, 46, 48, 51, 54, 57, 60, 62, 65, 67];
 const AUT_PREV = [30, 31, 33, 34, 36, 37, 39, 40, 42, 43, 44, 46];
