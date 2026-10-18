@@ -733,7 +733,11 @@
   .ev-w { font-size: 11.5px; color: #9CA3AF; margin: 1px 0 4px; }
   .ev-d { font-size: 12.5px; color: #4B5563; line-height: 1.55; }
   .toast-wrap { position: fixed; bottom: 70px; left: 50%; transform: translateX(-50%); z-index: 3000; display: flex; flex-direction: column; gap: 8px; align-items: center; pointer-events: none; }
-  .toast { background: #181F26; color: #fff; font-size: 13px; padding: 11px 18px; border-radius: 100px; box-shadow: 0 8px 24px rgba(0,0,0,.25); opacity: 0; transform: translateY(10px); transition: all .25s; }
+  .toast { display: flex; align-items: center; gap: 12px; box-sizing: border-box; min-width: 320px; max-width: 560px; min-height: 48px; padding: 13px 8px 13px 16px; background: #181F26; color: #fff; font-size: 14px; line-height: 22px; font-weight: 400; border-radius: 8px; box-shadow: 0 8px 24px rgba(24,31,38,.28), 0 2px 6px rgba(24,31,38,.16); pointer-events: auto; opacity: 0; transform: translateY(10px); transition: all .25s; }
+  .toast .tz-i { flex: none; width: 20px; height: 20px; display: block; }
+  .toast .tz-m { flex: 1; min-width: 0; }
+  .toast .tz-x { flex: none; width: 28px; height: 28px; border: 0; border-radius: 50%; background: transparent; color: #fff; cursor: pointer; display: grid; place-items: center; padding: 0; }
+  .toast .tz-x:hover { background: rgba(255,255,255,.12); }
   .toast.show { opacity: 1; transform: translateY(0); }
 
   /* ---------- CONSOLE ---------- */
@@ -1639,10 +1643,10 @@ const DEMO_COPY = {
   carlson: { check: 'Human check requested: multiple pricing variables', detail: 'This email combines several pricing variables at once: a volume discount, the added licenses and the price list. Early in the deployment, a renewal manager double-checks the math before it goes out. This is a confidence-building step, and these checks reduce as the guardrail is tuned.' },
   nordlicht: {
     check: 'Human check requested: price increase and low health score', detail: 'Every email containing a price change and a health score below 50 is reviewed by a renewal manager before sending.',
-    summary: 'Nordlicht Energie renews on Jan 15 with a 4% list price increase per policy. The agent drafted the price increase notice for review. Every email containing a price change and a health score below 50 is reviewed by a renewal manager before sending.',
-    draft: "Hello Anja,\n\nI've reviewed the past 6 months of usage and there has been a growing trend across the team. We want to ensure there is no disruption with your business. Happy to walk through it whenever suits you.\n\nBest regards,\nElle AI Renewals",
-    typedClear: true, typeMs: 55,
-    typed: 'Ahead of your renewal on 15 January, I wanted to let you know that list prices for your plan move by 4% this cycle. Your renewal quote is attached.',
+    summary: 'Nordic Energy renews on Jan 15 with a 4% list price increase per policy. The agent drafted the price increase notice for review. Every email containing a price change and a health score below 50 is reviewed by a renewal manager before sending.',
+    draft: 'Hello Anja,\n\nAhead of your renewal on 15 January, I wanted to let you know that list prices for your plan move by 4% this cycle. Your renewal quote is attached.\n\nBest regards,\nElle AI Renewals',
+    typedClear: true, typeMs: 42,
+    typed: "I've reviewed the past 6 months of usage and there has been a growing trend across the team. We want to ensure there is no disruption with your business. Happy to walk through it whenever suits you.",
     reasoning: ['The renewal includes a 4% list price increase per policy.', 'The account health score is 43, which is below 50.', 'Every email with a price change and a health score below 50 is reviewed by a renewal manager before it is sent.']
   },
   hartmann: { check: 'Human check requested: salutation', detail: 'The contact record only holds a team mailbox, so the agent used a neutral greeting. A renewal manager confirms who to address before it is sent.', summary: 'The agent drafted the renewal quote for Hartmann AG. It used a neutral greeting because it is not sure who to address, so a renewal manager checks it.' }
@@ -1721,6 +1725,13 @@ function isoD(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padSt
     o.target = nt; o.gross = nt; o.forecast = nf; o.change = nf - nt; if (o.res === 'Won') o.final = nt; else if (o.res === 'Lost') o.final = 0;
   }
   const vq = QUEUE.find(q => OPP(q.opp).key === 'veldt'), vo = OPPK('veldt'); if (vq && vo) swap(vq, [['\u202429,140'.replace('\u2024','\u20ac'), '\u20ac' + fmt(Math.round(vo.target * 0.94))]]);
+})();
+
+/* ---------- Nordlicht Energie is shown as Nordic Energy ---------- */
+(function () {
+  const seen = new Set(), fix = t => t.split('Nordlicht Energie').join('Nordic Energy').split('nordlicht-energie').join('nordic-energy');
+  const walk = x => { if (!x || typeof x !== 'object' || seen.has(x)) return; seen.add(x); for (const k of Object.keys(x)) { const v = x[k]; if (typeof v === 'string') x[k] = fix(v); else walk(v); } };
+  [OPPS, EVENTS, TRACE, QUEUE, AI_SEED].forEach(walk);
 })();
 
 
@@ -1851,7 +1862,10 @@ const INT = { Expanding: 'green', Downsell: 'amber', 'Not renewing': 'red' };
 const intent = i => i ? `<span class="vc ${INT[i] || ''}">${esc(i)}</span>` : '<span class="vmut">None</span>';
 const QST = { Awaiting: 'amber', Approved: 'green', Accepted: 'green', Declined: 'red', 'Taken over': '', Expired: '' };
 const qChip = s => `<span class="vc ${QST[s] || ''}">${esc(s)}</span>`;
-const toast = msg => { const t = document.createElement('div'); t.className = 'toast'; t.innerHTML = msg; $('#toastWrap').appendChild(t); requestAnimationFrame(() => t.classList.add('show')); setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }, 3200); };
+const tzI = {"success": "<svg class=\"tz-i\" viewBox=\"0 0 20 20\"><circle cx=\"10\" cy=\"10\" r=\"10\" fill=\"#1AAB5F\"/><path d=\"M5.8 10.3l2.8 2.8 5.6-5.8\" fill=\"none\" stroke=\"#fff\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>", "info": "<svg class=\"tz-i\" viewBox=\"0 0 20 20\"><circle cx=\"10\" cy=\"10\" r=\"10\" fill=\"#0B6CF5\"/><circle cx=\"10\" cy=\"6\" r=\"1.2\" fill=\"#fff\"/><path d=\"M10 8.8v5.4\" stroke=\"#fff\" stroke-width=\"1.8\" stroke-linecap=\"round\"/></svg>"}, tzX = '<svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 2l10 10M12 2L2 12" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>';
+const tzKind = m => /not part of|outside Atlas|No execution|already resolved|Open Executions|paused|returned to the agent/i.test(m) ? 'info' : 'success';
+const tzMake = (msg, html) => { const t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role', 'status'); t.innerHTML = tzI[tzKind(msg)] + '<span class="tz-m"></span><button class="tz-x" aria-label="Close">' + tzX + '</button>'; const m = t.querySelector('.tz-m'); if (html) m.innerHTML = msg; else m.textContent = msg; const kill = () => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }; t.querySelector('.tz-x').onclick = kill; document.getElementById('toastWrap').appendChild(t); requestAnimationFrame(() => t.classList.add('show')); setTimeout(kill, 3600); };
+const toast = msg => tzMake(msg, true);
 const secH = (ic, cls, t, right) => `<div class="vs-h"><span class="ic ${cls}">${hz(ic)}</span>${t}${right ? '<span style="flex:1"></span>' + right : ''}</div>`;
 const fld = (l, v) => `<div><small>${l}</small><div>${v == null || v === '' ? '<span class="vmut">None</span>' : v}</div></div>`;
 
@@ -2016,8 +2030,8 @@ function approve(id) {
   q.edited = edited;
   ATLAS(o.id, ts, 'update', 'Approval decided: Approved' + (edited ? ' (edited)' : ''), q.id + ' approved by ' + ME + '.', { kind: 'approval-decided' });
   ATLAS(o.id, ts, 'email', q.c.draft.subject, q.c.draft.body, { to: q.c.draft.to.join(', ') }); o.emails++; if (o.status === 'Not started') o.status = 'Outreach';
-  if (edited) ATLAS(o.id, ts, 'update', 'Edit captured as feedback', 'Your change is saved with the draft so the team can use it to tune the guardrail.', { kind: 'learning' });
-  decide(q, 'Approved', { edited }); toast(edited ? 'Approved with your edits. The email is sent and your edit is saved as feedback.' : 'Approved. The email is sent.');
+  if (edited) ATLAS(o.id, ts, 'update', 'Edit sent back as feedback', 'Your change is sent back to improve future emails.', { kind: 'learning' });
+  decide(q, 'Approved', { edited }); toast(edited ? 'Approved with your edits. The email is sent and your change is sent back to improve future emails.' : 'Approved. The email is sent.');
 }
 function declineQ(id) { const q = QUEUE.find(x => x.id === id), fb = ($('#decFb') || {}).value || '', o = qOpp(q); ATLAS(o.id, nowTs(), 'update', 'Approval decided: Declined', q.id + ' declined by ' + ME + '.' + (fb ? ' Feedback: ' + fb : ''), { kind: 'approval-decided' }); decide(q, 'Declined', { feedback: fb }); toast('Declined. Feedback sent to the agent.'); }
 function takeOverOpp(o, why, note) {
